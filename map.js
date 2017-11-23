@@ -19,7 +19,8 @@ setup(width,height);
 function setup(width,height){
   projection = d3.geo.mercator()
     .translate([(width/2), (height/2)])
-    .scale( width / 2 / Math.PI);
+    .center([-97, 50])
+    .scale(500);
 
   path = d3.geo.path().projection(projection);
 
@@ -56,7 +57,6 @@ function draw(topo) {
    .attr("class", "equator")
    .attr("d", path);
 
-
   var country = g.selectAll(".country").data(topo);
 
   country.enter().insert("path")
@@ -64,7 +64,12 @@ function draw(topo) {
       .attr("d", path)
       .attr("id", function(d,i) { return d.id; })
       .attr("title", function(d,i) { return d.properties.name; })
-      .style("fill", function(d, i) { return d.properties.color; });
+      .style("fill", function(d, i) {
+        if(d.properties.name == "United States"){
+          return d.properties.color;
+        }
+        else return "black";
+      });
 
   //offsets for tooltips
   var offsetL = document.getElementById('container').offsetLeft+20;
@@ -85,18 +90,14 @@ function draw(topo) {
         tooltip.classed("hidden", true);
       });
 
+  d3.csv("data/airports.csv", function(data) {
+    data.forEach(function(d){
+      addpoint(d.LONGITUDE, d.LATITUDE, d.CITY );
+    });
 
-  //EXAMPLE: adding some capitals from external CSV file
-  // d3.csv("data/country-capitals.csv", function(err, capitals) {
-  //
-  //   capitals.forEach(function(i){
-  //     addpoint(i.CapitalLongitude, i.CapitalLatitude, i.CapitalName );
-  //   });
-  //
-  // });
+  });
 
 }
-
 
 function redraw() {
   width = document.getElementById('container').offsetWidth;
@@ -106,14 +107,11 @@ function redraw() {
   draw(topo);
 }
 
-
 function move() {
-
   var t = d3.event.translate;
   var s = d3.event.scale;
   zscale = s;
   var h = height/4;
-
 
   t[0] = Math.min(
     (width/height)  * (s - 1),
@@ -133,8 +131,6 @@ function move() {
 
 }
 
-
-
 var throttleTimer;
 function throttle() {
   window.clearTimeout(throttleTimer);
@@ -143,17 +139,15 @@ function throttle() {
     }, 200);
 }
 
-
 //geo translation on mouse click in map
 function click() {
   var latlon = projection.invert(d3.mouse(this));
   console.log(latlon);
 }
 
-
 //function to add points and text to the map (used in plotting capitals)
 function addpoint(lat,lon,text) {
-
+  console.log(lat,lon,text);
   var gpoint = g.append("g").attr("class", "gpoint");
   var x = projection([lat,lon])[0];
   var y = projection([lat,lon])[1];
