@@ -27,6 +27,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-data/
+data/flights.csv
 
 # End of https://www.gitignore.io/api/macos
