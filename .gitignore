@@ -28,5 +28,5 @@ Temporary Items
 .apdisk
 
 data/flights.csv
-
+world-topo-min.json
 # End of https://www.gitignore.io/api/macos

@@ -1,110 +1,133 @@
 d3.select(window).on("resize", throttle);
 
-var zoom = d3.behavior.zoom()
-    .scaleExtent([1, 9])
-    .on("zoom", move);
-
-
-var width = document.getElementById('container').offsetWidth;
-var height = width / 2;
-
 var topo,projection,path,svg,g;
+var width = 960,
+    height = 500,
+    centered;
 
-var graticule = d3.geo.graticule();
+setup("ALL");
 
-var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden");
+function setup(size){
+  projection = d3.geo.albersUsa()
+      .scale(1070)
+      .translate([width / 2, height / 2]);
 
-setup(width,height);
+   path = d3.geo.path().projection(projection);
 
-function setup(width,height){
-  projection = d3.geo.mercator()
-    .translate([(width/2), (height/2)])
-    .center([-97, 50])
-    .scale(500);
-
-  path = d3.geo.path().projection(projection);
-
-  svg = d3.select("#container").append("svg")
+   svg = d3.select("#map").append("svg")
       .attr("width", width)
       .attr("height", height)
-      .call(zoom)
-      .on("click", click)
       .append("g");
 
-  g = svg.append("g");
+   g = svg.append("g");
+
+   d3.json("map/us.json", function(error, us) {
+     if (error) throw error;
+
+    g.append("g")
+      .attr("id", "states")
+    .selectAll("path")
+      .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+      .attr("d", path)
+      .on("click", clicked);
+
+  g.append("path")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("id", "state-borders")
+      .attr("d", path);
+
+     var usa = topojson.feature(us, us.objects.states).features;
+     topo = usa;
+     draw(topo,size);
+
+   });
 
 }
 
-d3.json("map/world-topo-min.json", function(error, world) {
-
-  var countries = topojson.feature(world, world.objects.countries).features;
-
-  topo = countries;
-  draw(topo);
-
-});
-
-function draw(topo) {
-
-  svg.append("path")
-     .datum(graticule)
-     .attr("class", "graticule")
-     .attr("d", path);
 
 
-  g.append("path")
-   .datum({type: "LineString", coordinates: [[-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0]]})
-   .attr("class", "equator")
-   .attr("d", path);
+function draw(topo,size) {
 
-  var country = g.selectAll(".country").data(topo);
-
-  country.enter().insert("path")
-      .attr("class", "country")
-      .attr("d", path)
-      .attr("id", function(d,i) { return d.id; })
-      .attr("title", function(d,i) { return d.properties.name; })
-      .style("fill", function(d, i) {
-        if(d.properties.name == "United States"){
-          return d.properties.color;
-        }
-        else return "black";
-      });
-
-  //offsets for tooltips
-  var offsetL = document.getElementById('container').offsetLeft+20;
-  var offsetT = document.getElementById('container').offsetTop+10;
-
-  //tooltips
-  country
-    .on("mousemove", function(d,i) {
-
-      var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
-
-      tooltip.classed("hidden", false)
-             .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
-             .html(d.properties.name);
-
-      })
-      .on("mouseout",  function(d,i) {
-        tooltip.classed("hidden", true);
-      });
-
-  d3.csv("data/airports.csv", function(data) {
+  if(size == null ) size = "ALL";
+  console.log(size);
+  d3.csv("data/data.csv", function(data) {
     data.forEach(function(d){
-      addpoint(d.LONGITUDE, d.LATITUDE, d.CITY );
+      if(d.flight > 250 && size =="L"){
+        addpoint(d);
+      }
+      else if(d.flight < 250 && d.flight > 100 && size =="M"){
+        addpoint(d);
+      }
+      else if(d.flight < 250 && d.flight < 100 && size =="S"){
+        addpoint(d);
+      }
+      else if(size == "ALL" || size == null){
+        addpoint(d);
+      }
     });
 
   });
 
 }
 
-function redraw() {
-  width = document.getElementById('container').offsetWidth;
-  height = width / 2;
+function redraw(size) {
   d3.select('svg').remove();
-  setup(width,height);
-  draw(topo);
+  setup(size);
+
+}
+
+//function to add points and text to the map
+function addpoint(d) {
+  var lon = d.latitude;
+  var lat = d.longitude;
+  var text = d.city;
+  var value = d.flight;
+  var gpoint = g.append("g").attr("class", "gpoint");
+  var x, y;
+  try {
+    x = projection([lat,lon])[0];
+    y = projection([lat,lon])[1];
+    let color;
+    if(value> 250){
+      color = "purple";
+    }
+    else if(value > 100){
+      color = "blue";
+      value = value*2;
+    }
+    else{
+      color = "green";
+      value = value*3;
+    }
+
+    gpoint.append("svg:circle")
+    .attr("cx", x)
+    .attr("cy", y)
+    .attr("class","point")
+    .attr("r", value/60)
+    .style("fill",color)
+    .style("stroke","white")
+    .style("stroke-width",0.1)
+    .style("cursor","pointer")
+    .call(d3.helper.tooltip()
+      .style({color: 'black'})
+      .text(text+": "+value)
+    )
+    .on('mouseover', function(d, i){ d3.select(this).style({fill: 'color'}); })
+    .on('mouseout', function(d, i){ d3.select(this).style({fill: 'color'}); });
+  }
+  catch(err) {
+    return;
+  }
+}
+
+var throttleTimer;
+function throttle() {
+  window.clearTimeout(throttleTimer);
+  throttleTimer = window.setTimeout(function() {
+    draw();
+  }, 200);
 }
 
 function move() {
@@ -131,41 +154,95 @@ function move() {
 
 }
 
-var throttleTimer;
-function throttle() {
-  window.clearTimeout(throttleTimer);
-    throttleTimer = window.setTimeout(function() {
-      redraw();
-    }, 200);
-}
+function clicked(d) {
+  var x, y, k;
 
-//geo translation on mouse click in map
-function click() {
-  var latlon = projection.invert(d3.mouse(this));
-  console.log(latlon);
-}
-
-//function to add points and text to the map (used in plotting capitals)
-function addpoint(lat,lon,text) {
-  console.log(lat,lon,text);
-  var gpoint = g.append("g").attr("class", "gpoint");
-  var x = projection([lat,lon])[0];
-  var y = projection([lat,lon])[1];
-
-  gpoint.append("svg:circle")
-        .attr("cx", x)
-        .attr("cy", y)
-        .attr("class","point")
-        .attr("r", 1.5);
-
-  //conditional in case a point has no associated text
-  if(text.length>0){
-
-    gpoint.append("text")
-          .attr("x", x+2)
-          .attr("y", y+2)
-          .attr("class","text")
-          .text(text);
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 4;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
   }
 
+  g.selectAll("path")
+      .classed("active", centered && function(d) { return d === centered; });
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .style("stroke-width", 1.5 / k + "px");
 }
+
+d3.helper = {};
+
+d3.helper.tooltip = function(){
+  var tooltipDiv;
+  var bodyNode = d3.select('body').node();
+  var attrs = {};
+  var text = '';
+  var styles = {};
+
+  function tooltip(selection){
+
+    selection.on('mouseover.tooltip', function(pD, pI){
+      var name, value;
+      // Clean up lost tooltips
+      d3.select('body').selectAll('div.tooltip').remove();
+      // Append tooltip
+      tooltipDiv = d3.select('body').append('div');
+      tooltipDiv.attr(attrs);
+      tooltipDiv.style(styles);
+      var absoluteMousePos = d3.mouse(bodyNode);
+      tooltipDiv.style({
+        left: (absoluteMousePos[0] + 10)+'px',
+        top: (absoluteMousePos[1] - 15)+'px',
+        position: 'absolute',
+        'z-index': 1001
+      });
+      // Add text using the accessor function, Crop text arbitrarily
+      tooltipDiv.style('width', function(d, i){ return (text(pD, pI).length > 80) ? '300px' : null; })
+      .html(function(d, i){return text(pD, pI);});
+    })
+    .on('mousemove.tooltip', function(pD, pI){
+      // Move tooltip
+      var absoluteMousePos = d3.mouse(bodyNode);
+      tooltipDiv.style({
+        left: (absoluteMousePos[0] + 10)+'px',
+        top: (absoluteMousePos[1] - 15)+'px'
+      });
+      // Keep updating the text, it could change according to position
+      tooltipDiv.html(function(d, i){ return text(pD, pI); });
+    })
+    .on('mouseout.tooltip', function(pD, pI){
+      // Remove tooltip
+      tooltipDiv.remove();
+    });
+
+  }
+
+  tooltip.attr = function(_x){
+    if (!arguments.length) return attrs;
+    attrs = _x;
+    return this;
+  };
+
+  tooltip.style = function(_x){
+    if (!arguments.length) return styles;
+    styles = _x;
+    return this;
+  };
+
+  tooltip.text = function(_x){
+    if (!arguments.length) return text;
+    text = d3.functor(_x);
+    return this;
+  };
+
+  return tooltip;
+};
