@@ -1,3 +1,5 @@
+requirejs(["skycons"]);
+
 d3.select(window).on("resize", throttle);
 
 var topo,projection,path,svg,g;
@@ -115,10 +117,13 @@ function addpoint(d) {
     .on('mouseover', function(d, i){ d3.select(this).style({fill: 'color'}); })
     .on('mouseout', function(d, i){ d3.select(this).style({fill: 'color'}); })
     .on("click", function() {
+          d3.select("#meme").remove();
           d3.select("#airport").text(d.airport+" ("+d.name+")");
           d3.select("#airport_city").text(d.city+", "+d.state+": "+d.current_time);
-          d3.select("#airport_weather").text(d.temperature+"°C, "+d.summary);
-          console.log(d.temperature);
+          d3.select("#airport_weather").text("Temperature:"+Math.round(d.temperature)+"°C, Humidity:"+Math.round(d.humiditiy)+"%, "+d.summary);
+          var skycons = new Skycons();
+          skycons.add("icon", d.icon);
+          skycons.play();
         });
   }
   catch(err) {

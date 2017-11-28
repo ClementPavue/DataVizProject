@@ -35,14 +35,19 @@
   <div class="row">
     <div class="col" id="map"></div>
     <div class="col" id="info">
+      <img id="meme" src="https://i.imgflip.com/205r7l.jpg"/>
       <h2 id="airport"></h2>
       <h3 id="airport_city"></h3>
+      <figure>
+        <canvas id="icon" width="64" height="64">
+        </canvas>
+      </figure>
       <div id="airport_weather"></div>
     </div>
   </div>
 </body>
 <footer>
-    <script type="text/javascript" src='map.js'></script>
+    <script data-main="map" src="require.js"></script>
 </footer>
 
 <style>
