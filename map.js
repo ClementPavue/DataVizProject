@@ -117,10 +117,10 @@ function addpoint(d) {
     .on('mouseover', function(d, i){ d3.select(this).style({fill: 'color'}); })
     .on('mouseout', function(d, i){ d3.select(this).style({fill: 'color'}); })
     .on("click", function() {
-          d3.select("#airport").text(d.airport+" ("+d.name+")");
-          d3.select("#airport_city").text(d.city+", "+d.state+": "+d.current_time);
+          d3.select("#airport").text(d.airport+" ("+d.name+")")
+          d3.select("#airport_city").text(d.city+", "+d.state+": "+d.current_time)
           d3.select("#airport_weather").text(d.temperature+"°C, "+d.summary);
-
+          log(d.temperature)
         });
   }
   catch(err) {
