@@ -54,7 +54,7 @@
     position: absolute;
     text-align: left;
     padding: 3px;
-    font: 11px sans-serif;
+    font: 12px sans-serif;
     background: lightcyan;
     border: 0px;
     border-radius: 1px;
@@ -63,6 +63,10 @@
 }
 
 /*Box Plot*/
+.chart-wrapper .box-plot .box {
+    fill-opacity: 0.4;
+    stroke-width: 2;
+}
 .chart-wrapper .box-plot line {
     stroke-width: 2px;
 }
@@ -99,10 +103,25 @@
 
 .chart-wrapper .violin-plot .line {
     fill: none;
-    stroke-width: 1px;
+    stroke-width: 2px;
     shape-rendering: geometricPrecision;
 }
 
+/*Notch Plot*/
+.chart-wrapper .notch-plot .notch {
+    fill-opacity: 0.4;
+    stroke-width: 2;
+}
+
+/* Point Plots*/
+.chart-wrapper .points-plot .point {
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.chart-wrapper .metrics-lines {
+    stroke-width: 4px;
+}
 
 /* Non-Chart Styles for demo*/
 .chart-options  {
