@@ -32,51 +32,46 @@
   <div class="row">
     <div class="col" id="map"></div>
     <div class="col" id="info">
-      <img id="meme" src="https://i.imgflip.com/205r7l.jpg" width="400" height="500"/>
       <h3 id="airport"></h3>
       <h4 id="airport_city"></h4>
       <figure >
         <canvas class="d-inline"id="icon" width="50" height="50"></canvas>
-        <div class="d-inline" id="airport_weather"></div>
+        <div class="d-inline" id="airport_weather">
+        </div>
       </figure>
+      <div id="speed_title" style="display: none;">Speed by air company:</div>
+      <br><div class="chart-wrapper" id="speed"></div>
     </div>
   </div>
-  <div class="row">
-    <div class="col" id="speed"></div>
-  </div>
+  <!-- <div class="chart-wrapper" id="speed"></div> -->
 </body>
 <footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
   <script data-main="js/main" src="js/require.js"></script>
+  <script src="js/distrochart.js"></script>
+  <style>
+  .background {
+    fill: none;
+    pointer-events: all;
+  }
+  #states {
+    fill: #aaa;
+  }
+  #states .active {
+    fill: orange;
+  }
+  #state-borders {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.5px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+  }
+  </style>
 </footer>
-
-<style>
-
-.background {
-  fill: none;
-  pointer-events: all;
-}
-
-#states {
-  fill: #aaa;
-}
-
-#states .active {
-  fill: orange;
-}
-
-#state-borders {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  pointer-events: none;
-}
-
-</style>
 </html>
