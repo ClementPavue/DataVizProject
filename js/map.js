@@ -1,10 +1,11 @@
 var topo,projection,path,svg,g,centered,throttleTimer;
-var width = 960;
+var width = 860;
 var height = 500;
-var first = true;
-
+var state = "ALL" ;
 d3.select(window).on("resize", throttle);
-setup("ALL");
+setup(state);
+legend();
+violin();
 
 function setup(size){
   projection = d3.geo.albersUsa()
@@ -44,7 +45,7 @@ function setup(size){
 }
 
 function draw(topo,size) {
-  if(size == null ) size = "ALL";
+  if(size === null ) size = "ALL";
 
   d3.csv("data/data.csv", function(data) {
     data.forEach(function(d){
@@ -57,7 +58,7 @@ function draw(topo,size) {
       else if(d.flight < 250 && d.flight < 100 && size =="S"){
         addpoint(d);
       }
-      else if(size == "ALL" || size == null){
+      else if(size == "ALL" || size === null){
         addpoint(d);
       }
     });
@@ -65,6 +66,8 @@ function draw(topo,size) {
 }
 
 function redraw(size) {
+  if(size == state) size = "ALL";
+  state = size;
   d3.select('svg').remove();
   setup(size);
 }
@@ -79,18 +82,18 @@ function addpoint(d) {
   try {
     x = projection([lat,lon])[0];
     y = projection([lat,lon])[1];
-    let color;
-    let value = number_of_flight;
+    var color;
+    var value = number_of_flight;
     if(value> 250){
-      color = "purple";
+      color = "#6D6875";
       value = 3*2;
     }
     else if(value > 100){
-      color = "blue";
+      color = "#4E8098";
       value = 3*1.5;
     }
     else{
-      color = "green";
+      color = "#A31621";
       value = 3;
     }
 
@@ -113,17 +116,27 @@ function addpoint(d) {
     d3.select(this).style("stroke","");
   })
   .on("click", function() {
-    var t = new Date();
-    var hour = parseInt(t.getHours())+parseInt(d.offset)-1;
     d3.select(this).style("stroke","white");
     add_Line(this);
     d3.select("#airport").text(d.airport+" ("+d.name+")");
-    d3.select("#airport_city").text(d.city+", "+d.state+", "+hour+":"+t.getMinutes());
-    d3.select("#airport_weather").text(Math.round(d.temperature)+"°C, "+d.summary+" Humidity:"+Math.round(d.humiditiy)+"%, ");
-    var skycons = new Skycons();
+    d3.select("#airport_city").text(d.city+", "+d.state+", UTC"+d.offset);
+    d3.select("#airport_weather").text(Math.round(d.temperature)+"°C, "+d.summary+", humidity: "+Math.round(d.humiditiy)+"%, ");
+    var skycons = new Skycons("red");
     skycons.add("icon", d.icon);
     skycons.play();
-    violin(d.name);
+
+    d3.csv('data/speed.csv', function(error, data) {
+      data = data.filter(function(row) {
+        return row.ORIGIN_AIRPORT == d.name;
+      });
+      var airlines = [];
+      data.forEach(function(d){
+        airlines.push(d.AIRLINE);
+      });
+      airlines = airlines.filter((v, i, a) => a.indexOf(v) === i);
+      d3.select("#airline-available").text(airlines);
+    });
+
   });
 }
 catch(err) {
@@ -155,93 +168,117 @@ function add_Line(c) {
         return;
       }
     });
-
-
   });
 }
 
-function violin(airport){
-  var speed_title = document.getElementById("speed_title");
-  speed_title.style.display = "block";
-  if(!first){
-    var element = document.getElementById("speed");
-    element.removeChild(element.childNodes[0]);
+function throttle() {
+  window.clearTimeout(throttleTimer);
+  throttleTimer = window.setTimeout(function() {
+    draw();
+  }, 200);
+}
+
+function move() {
+  var t = d3.event.translate;
+  var s = d3.event.scale;
+  zscale = s;
+  var h = height/4;
+
+  t[0] = Math.min(
+    (width/height)  * (s - 1),
+    Math.max( width * (1 - s), t[0] )
+  );
+
+  t[1] = Math.min(
+    h * (s - 1) + h * s,
+    Math.max(height  * (1 - s) - h * s, t[1])
+  );
+
+  zoom.translate(t);
+  g.attr("transform", "translate(" + t + ")scale(" + s + ")");
+  d3.selectAll(".country").style("stroke-width", 1.5 / s);
+
+}
+
+function clicked(d) {
+  var x, y, k;
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 4;
+    centered = d;
   }
+  else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
+  }
+
+  g.selectAll("path")
+  .classed("active", centered && function(d) { return d === centered; });
+
+  g.transition()
+  .duration(750)
+  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+  .style("stroke-width", 1.5 / k + "px");
+}
+
+function violin(){
   var chart1;
   d3.csv('data/speed.csv', function(error, data) {
     data = data.filter(function(row) {
-      return row.ORIGIN_AIRPORT == airport;
+      return row.ORIGIN_AIRPORT == "LAX";
     });
-    chart1 = makeDistroChart({
-      data:data,
-      xName:'IATA_CODE',
-      yName:'SPEED',
-      axisLabels: {xAxis: null, yAxis: 'speed (km/h)'},
-      selector:"#speed",
-      chartSize:{height:360, width:460},
-      constrainExtremes:true});
-      chart1.renderBoxPlot();
-      chart1.renderDataPlots();
-      chart1.renderNotchBoxes({showNotchBox:false});
-      chart1.renderViolinPlot({showViolinPlot:true});
-      chart1.violinPlots.show({reset:true,clamp:0});
-      chart1.boxPlots.show({reset:true, showWhiskers:false,showOutliers:false,boxWidth:10,lineWidth:15,colors:['#555']});
-      chart1.notchBoxes.hide();
-      chart1.dataPlots.change({showPlot:false,showBeanLines:false})
-    });
-    first = false;
-  }
+    chart1 = makeDistroChart({data:data,xName:'IATA_CODE',yName:'SPEED',axisLabels: {xAxis: null, yAxis: 'speed (km/h)'},selector:"#speed",chartSize:{height:660, width:960},constrainExtremes:true});
+    chart1.renderBoxPlot();
+    chart1.renderDataPlots();
+    chart1.renderNotchBoxes({showNotchBox:false});
+    chart1.renderViolinPlot({showViolinPlot:true});
+    chart1.violinPlots.show({reset:true,clamp:0});
+    chart1.boxPlots.show({reset:true, showWhiskers:false,showOutliers:false,boxWidth:10,lineWidth:15,colors:['#555']});
+    chart1.notchBoxes.hide();
+    chart1.dataPlots.change({showPlot:false,showBeanLines:false});
+  });
+}
 
-  function throttle() {
-    window.clearTimeout(throttleTimer);
-    throttleTimer = window.setTimeout(function() {
-      draw();
-    }, 200);
-  }
+function legend(){
+  var legendData = [[">250", "#6D6875", "circle", "L"], ["100<.<250", "#4E8098", "circle", "M"], ["1<.<100", "#A31621", "circle", "S"]];
+  var svg = d3.select('#legend').append('svg').attr('width', 500).attr('height', 100);
+  var legend = svg.append('g')
+  .attr("class", "legend")
+  .attr("height", 0)
+  .attr("width", 0)
+  .attr('transform', 'translate(20,20)');
 
-  function move() {
-    var t = d3.event.translate;
-    var s = d3.event.scale;
-    zscale = s;
-    var h = height/4;
+  var legendRect = legend
+  .selectAll('g')
+  .data(legendData);
 
-    t[0] = Math.min(
-      (width/height)  * (s - 1),
-      Math.max( width * (1 - s), t[0] )
-    );
+  var legendRectE = legendRect.enter()
+  .append("g")
+  .attr("transform", function(d,i){
+    return 'translate(0, ' + (i * 20) + ')';
+  });
 
-    t[1] = Math.min(
-      h * (s - 1) + h * s,
-      Math.max(height  * (1 - s) - h * s, t[1])
-    );
+  legendRectE
+  .append('path')
+  .attr("d", d3.svg.symbol().type((d) => {
+     return d[2]
+   }))
+  .style("fill", function (d) {
+    return d[1];
+  })
+  .style("cursor","pointer")
+  .on("click", function(d,i) {
+    redraw(d[3]);
+  });
 
-    zoom.translate(t);
-    g.attr("transform", "translate(" + t + ")scale(" + s + ")");
-    d3.selectAll(".country").style("stroke-width", 1.5 / s);
-
-  }
-
-  function clicked(d) {
-    var x, y, k;
-    if (d && centered !== d) {
-      var centroid = path.centroid(d);
-      x = centroid[0];
-      y = centroid[1];
-      k = 4;
-      centered = d;
-    }
-    else {
-      x = width / 2;
-      y = height / 2;
-      k = 1;
-      centered = null;
-    }
-
-    g.selectAll("path")
-    .classed("active", centered && function(d) { return d === centered; });
-
-    g.transition()
-    .duration(750)
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-    .style("stroke-width", 1.5 / k + "px");
-  }
+  legendRectE.append("text")
+  .attr("x", 10)
+  .attr("y", 5)
+  .text(function (d) {
+    return d[0];
+  });
+}
