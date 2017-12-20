@@ -42,90 +42,112 @@
           <li class="l-section section section--is-active">
             <div class="intro">
               <div class="col" id="info">
-                <h3 id="airport">Airports</h3>
-                <h4 id="airport_city"></h4>
-                <div id="airport_weather">
-                </div>
-                <div class="col" id="map"></div>
+                <h3 id="airport">Please select an airport</h3>
                 <div class="intro--options">
-                  <a>
-                    <h3>Airlines available</h3>
-                    <p id="airline-available"></p>
-                  </a>
-                  <a>
+                  <div class="col" id="map"></div>
+                  <div class="info-map">
+                    <h3 id="airport_city"></h3>
+                    <div id="airport_weather"></div>
+                    <div id="airport_humidity"></div>
+                    <div id="airport_zone"></div>
+                    <div id="airport_code"></div>
+                    <!-- <div id="icon"></div> -->
+                    <h3 id="description_map">Title:</h3>
+                    <div id="content_map">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing
+                      <br>elit, sed do eiusmod tempor incididunt ut labore
+                      <br>et dolore magna aliqua. Ut enim ad minim veniam,
+                      <br>quis nostrud exercitation ullamco laboris nisi ut
+                      <br>aliquip ex ea commodo consequat. Duis aute irur
+                    </div>
+                    <ul id="airline-available"></ul>
                     <h3>Number of flights per day:</h3>
-                    <p id="legend"></p>
-                  </a>
-              </div>
-            </div>
-          </li>
-          <li class="l-section section">
-            <div class="work">
-              <h2>Cruising  by airline</h2>
-              <div class="chart-wrapper" id="speed"></div>
-            </li>
-            <li class="l-section section">
-              <div class="contact">
-                <div class="contact--lockup">
-                  <div>
-                    HeatMap
+                    <div id="legend"></div>
                   </div>
                 </div>
               </div>
             </li>
             <li class="l-section section">
-              <div class="hire">
-                <h2>About our project</h2>
-                <div class="work-request--options">
-                  <span class="options-a">
-                    <label for="opt-1" style="border:none; pointer-events: none">
-                      Kévin Brou Boni
-                    </label>
-                    <label for="opt-2" style="border:none; pointer-events: none">
-                      Clément Pavué
-                    </label>
-                    <label for="opt-3" style="border:none; pointer-events: none">
-                      EL Mehdi Roussaky
-                    </label>
-                  </span>
-                  <span class="options-b">
-                    <a href="https://youtu.be/1XYHvKOT4_c">
-                      <label for="opt-4">
-                        Screencast
-                      </label>
-                    </a>
-                    <a href="https://github.com/ClementPavue/DataVizProject">
-                      <label for="opt-5">
-                        Process Book
-                      </label>
-                    </a>
-                    <a href="https://github.com/ClementPavue/DataVizProject">
-                      <label for="opt-6" style="border:none">
-                        <img src="image/GitHub-Mark-120px-plus.png" style="height: 36px">
-                      </a>
-                    </label>
-                  </span>
+              <div class="work">
+                <h3 id="cruise">Cruising speed by airline</h3>
+                <div class="intro--options">
+                  <div class="chart-wrapper" id="speed"></div>
+                  <div class="info-map">
+                    <h3>Violin plot:</h3>
+                    <div>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing
+                      <br>elit, sed do eiusmod tempor incididunt ut labore
+                      <br>et dolore magna aliqua. Ut enim ad minim veniam,
+                      <br>quis nostrud exercitation ullamco laboris nisi ut
+                      <br>aliquip ex ea commodo consequat. Duis aute irur
+                    </div>
+                    <h3>Airlines:</h3>
+                    <ul id="airline_code"></ul>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+              <li class="l-section section">
+                <div class="contact">
+                  <div class="contact--lockup">
+                    <div>
+                      HeatMap
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="l-section section hire0">
+                <div class="hire">
+                  <h2>About our project</h2>
+                  <div class="work-request--options">
+                    <span class="options-a">
+                      <label for="opt-1" style="border:none; pointer-events: none">
+                        Kévin Brou Boni
+                      </label>
+                      <label for="opt-2" style="border:none; pointer-events: none">
+                        Clément Pavué
+                      </label>
+                      <label for="opt-3" style="border:none; pointer-events: none">
+                        EL Mehdi Roussaky
+                      </label>
+                    </span>
+                    <span class="options-b">
+                      <a href="https://youtu.be/1XYHvKOT4_c">
+                        <label for="opt-4">
+                          Screencast
+                        </label>
+                      </a>
+                      <a href="https://github.com/ClementPavue/DataVizProject">
+                        <label for="opt-5">
+                          Process Book
+                        </label>
+                      </a>
+                      <a href="https://github.com/ClementPavue/DataVizProject">
+                        <label for="opt-6" style="border:none">
+                          <img src="image/GitHub-Mark-120px-plus.png" style="height: 36px">
+                        </a>
+                      </label>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+      <ul class="outer-nav">
+        <li class="is-active">Map</li>
+        <li>Speed</li>
+        <li>Delays</li>
+        <li>Project</li>
+      </ul>
     </div>
-    <ul class="outer-nav">
-      <li class="is-active">Map</li>
-      <li>Speed</li>
-      <li>Delays</li>
-      <li>Project</li>
-    </ul>
-  </div>
-</body>
-<footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
-  <script src="js/functions-min.js"></script>
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://d3js.org/topojson.v1.min.js"></script>
-  <script data-main="js/main" src="js/require.js"></script>
-</footer>
-</html>
+  </body>
+  <footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+    <script src="js/functions-min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script data-main="js/main" src="js/require.js"></script>
+  </footer>
+  </html>

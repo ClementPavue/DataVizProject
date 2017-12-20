@@ -1,70 +1,102 @@
 .background {
-  fill: none;
-  pointer-events: all;
-  height: 100%;
-  margin: 0;
-}
+	fill: none;
+	pointer-events: all;
+	height: 100%;
+	margin: 0;
+	color: #EFF1F3;
+ }
 
-.hero {
-  /* background-color: #AEB8C3; */
-  background-image: url("../image/hero1.jpg");
-  height: 400px;
-  width: 102%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
+.map {
+	background-color: #ecf0f1;
+	width: 104%;
+ }
 
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-
-.map{
-  background-color: #ECF0F1;
-  width: 104%;
-
-}
 a {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-h2{
-  text-align: center;
-  color: white;
-  margin-left: 50%;
-  margin-top: 20px;
-}
-#states {
-  fill: #aaa;
-}
-#states .active {
-  fill: orange;
-}
+	color: #ffffff;
+	text-decoration: none;
+ }
+
+h2 {
+	text-align: center;
+	color: white;
+	margin-left: 50%;
+	margin-top: 20px;
+	font-size: 16px;
+	text-transform: uppercase;
+ }
+
+#states {fill: #aaa;}
+
+	#states .active {fill: orange;}
+
 #state-borders {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  pointer-events: none;
-}
+	fill: none;
+	stroke: #fff;
+	stroke-width: 1.5px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	pointer-events: none;
+ }
 
-#airport{
-  text-align: center;
-}
-#airport_city{
-  text-align: center;
-}
-#airport_weather{
-  text-align: center;
-}
+#airport {
+	text-align: center;
+	font-size: 23px;
+	color: #EFF1F3;
+ }
 
-#legend{
-  margin-top: -20px;
-}
+#cruise {
+	text-align: center;
+	font-size: 23px;
+	color: #EFF1F3;
+ }
+
+#legend {margin-top: -20px;}
+
+#info {
+	margin-top: -25px;
+	width: 125%; /* width: 1215px; */
+ }
+
+#work {width: 145%; /* width: 1215px; */}
+
+.info-map {margin-left: 25px;}
+
+#airline-available {text-align: justify;}
+
+.intro {
+	margin-left: 5%;
+	margin-right: 5%;
+ }
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+ }
+
+	.tooltip .tooltiptext {
+		visibility: hidden;
+		width: 120px;
+		background-color: black;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+		position: absolute;
+		z-index: 1;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -60px;
+		opacity: 0;
+		transition: opacity 1s;
+	 }
+
+	.tooltip:hover .tooltiptext {
+		visibility: visible;
+		opacity: 0.8;
+	 }
+
+.chart-wrapper {
+	width: 860px;
+	height: 415px;
+ }

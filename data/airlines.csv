@@ -1,15 +1,15 @@
-IATA_CODE,AIRLINE
-UA,United Air Lines Inc.
-AA,American Airlines Inc.
-US,US Airways Inc.
-F9,Frontier Airlines Inc.
-B6,JetBlue Airways
-OO,Skywest Airlines Inc.
-AS,Alaska Airlines Inc.
-NK,Spirit Air Lines
-WN,Southwest Airlines Co.
-DL,Delta Air Lines Inc.
-EV,Atlantic Southeast Airlines
-HA,Hawaiian Airlines Inc.
-MQ,American Eagle Airlines Inc.
-VX,Virgin America
+AIRLINE,IATA_CODE,SPEED
+United Air Lines Inc.,UA,735.1776026471099
+American Airlines Inc.,AA,720.553349821344
+US Airways Inc.,US,684.948841344759
+Frontier Airlines Inc.,F9,712.0478874559145
+JetBlue Airways,B6,706.3106979277859
+Skywest Airlines Inc.,OO,613.6052039114992
+Alaska Airlines Inc.,AS,714.0047349652402
+Spirit Air Lines,NK,716.2781828775674
+Southwest Airlines Co.,WN,682.1830424562957
+Delta Air Lines Inc.,DL,687.6561490180584
+Atlantic Southeast Airlines,EV,604.193721032627
+Hawaiian Airlines Inc.,HA,542.7373922990296
+American Eagle Airlines Inc.,MQ,598.0847825616513
+Virgin America,VX,722.8165505898228
