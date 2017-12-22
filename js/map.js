@@ -198,7 +198,7 @@ function add_line(c) {
   }
   else {
     airport = null;
-    // initial();
+    initial();
   }
 }
 

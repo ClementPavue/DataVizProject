@@ -1,0 +1,701 @@
+airline,city,delay
+United Air Lines Inc ,Medford,0.0
+American Airlines Inc.,Medford,0.0
+US Airways Inc.,Medford,0.0
+Frontier Airlines Inc.,Medford,0.0
+JetBlue Airways,Medford,0.0
+Skywest Airlines Inc.,Medford,7.496514965149651
+Alaska Airlines Inc.,Medford,0.0
+Spirit Air Lines,Medford,0.0
+Southwest Airlines Co.,Medford,0.0
+Delta Air Lines Inc.,Medford,0.0
+Atlantic Southeast Airlines,Medford,0.0
+Hawaiian Airlines Inc.,Medford,0.0
+American Eagle Airlines Inc.,Medford,0.0
+Virgin America,Medford,0.0
+United Air Lines Inc.,Idaho Falls,0.0
+American Airlines Inc.,Idaho Falls,0.0
+US Airways Inc.,Idaho Falls,0.0
+Frontier Airlines Inc.,Idaho Falls,4.5
+JetBlue Airways,Idaho Falls,0.0
+Skywest Airlines Inc.,Idaho Falls,0.6786355475763016
+Alaska Airlines Inc.,Idaho Falls,0.0
+Spirit Air Lines,Idaho Falls,0.0
+Southwest Airlines Co.,Idaho Falls,0.0
+Delta Air Lines Inc.,Idaho Falls,0.0
+Atlantic Southeast Airlines,Idaho Falls,0.0
+Hawaiian Airlines Inc.,Idaho Falls,0.0
+American Eagle Airlines Inc.,Idaho Falls,0.0
+Virgin America,Idaho Falls,0.0
+United Air Lines Inc.,Madison,9.925049309664693
+American Airlines Inc.,Madison,0.0
+US Airways Inc.,Madison,0.0
+Frontier Airlines Inc.,Madison,6.514150943396227
+JetBlue Airways,Madison,0.0
+Skywest Airlines Inc.,Madison,5.387553041018387
+Alaska Airlines Inc.,Madison,0.0
+Spirit Air Lines,Madison,0.0
+Southwest Airlines Co.,Madison,0.0
+Delta Air Lines Inc.,Madison,2.7426645519429025
+Atlantic Southeast Airlines,Madison,6.833589349718382
+Hawaiian Airlines Inc.,Madison,0.0
+American Eagle Airlines Inc.,Madison,6.429777777777778
+Virgin America,Madison,0.0
+United Air Lines Inc.,Arlington,13.305077262693157
+American Airlines Inc.,Arlington,7.793526658294326
+US Airways Inc.,Arlington,6.149469126894135
+Frontier Airlines Inc.,Arlington,6.052791878172589
+JetBlue Airways,Arlington,7.516721871994871
+Skywest Airlines Inc.,Arlington,12.524199045671438
+Alaska Airlines Inc.,Arlington,1.027190332326284
+Spirit Air Lines,Arlington,0.0
+Southwest Airlines Co.,Arlington,7.341569451489023
+Delta Air Lines Inc.,Arlington,9.38633963149865
+Atlantic Southeast Airlines,Arlington,7.661065427243475
+Hawaiian Airlines Inc.,Arlington,0.0
+American Eagle Airlines Inc.,Arlington,22.021538461538462
+Virgin America,Arlington,6.3618421052631575
+United Air Lines Inc.,San Antonio,8.55688622754491
+American Airlines Inc.,San Antonio,5.865610328638498
+US Airways Inc.,San Antonio,4.10091743119266
+Frontier Airlines Inc.,San Antonio,0.0
+JetBlue Airways,San Antonio,0.0
+Skywest Airlines Inc.,San Antonio,9.711208151382824
+Alaska Airlines Inc.,San Antonio,-0.8318318318318318
+Spirit Air Lines,San Antonio,0.0
+Southwest Airlines Co.,San Antonio,8.362695810564663
+Delta Air Lines Inc.,San Antonio,4.56091030789826
+Atlantic Southeast Airlines,San Antonio,8.918053777208707
+Hawaiian Airlines Inc.,San Antonio,0.0
+American Eagle Airlines Inc.,San Antonio,15.154639175257731
+Virgin America,San Antonio,0.0
+United Air Lines Inc.,Charleston,1.3333333333333333
+American Airlines Inc.,Charleston,-1.2907801418439717
+US Airways Inc.,Charleston,2.015625
+Frontier Airlines Inc.,Charleston,0.0
+JetBlue Airways,Charleston,11.418037436188316
+Skywest Airlines Inc.,Charleston,15.161921708185053
+Alaska Airlines Inc.,Charleston,-1.9230769230769231
+Spirit Air Lines,Charleston,0.0
+Southwest Airlines Co.,Charleston,8.329506802721088
+Delta Air Lines Inc.,Charleston,5.0535415504740655
+Atlantic Southeast Airlines,Charleston,10.516129032258064
+Hawaiian Airlines Inc.,Charleston,0.0
+American Eagle Airlines Inc.,Charleston,10.670781893004115
+Virgin America,Charleston,0.0
+United Air Lines Inc.,Santa Barbara,0.0
+American Airlines Inc.,Santa Barbara,0.0
+US Airways Inc.,Santa Barbara,0.0
+Frontier Airlines Inc.,Santa Barbara,22.333333333333332
+JetBlue Airways,Santa Barbara,0.0
+Skywest Airlines Inc.,Santa Barbara,6.464970313825276
+Alaska Airlines Inc.,Santa Barbara,0.0
+Spirit Air Lines,Santa Barbara,0.0
+Southwest Airlines Co.,Santa Barbara,0.0
+Delta Air Lines Inc.,Santa Barbara,0.0
+Atlantic Southeast Airlines,Santa Barbara,0.0
+Hawaiian Airlines Inc.,Santa Barbara,0.0
+American Eagle Airlines Inc.,Santa Barbara,0.0
+Virgin America,Santa Barbara,0.0
+United Air Lines Inc.,Santa Maria,0.0
+American Airlines Inc.,Santa Maria,0.0
+US Airways Inc.,Santa Maria,0.0
+Frontier Airlines Inc.,Santa Maria,0.0
+JetBlue Airways,Santa Maria,0.0
+Skywest Airlines Inc.,Santa Maria,8.89280245022971
+Alaska Airlines Inc.,Santa Maria,0.0
+Spirit Air Lines,Santa Maria,0.0
+Southwest Airlines Co.,Santa Maria,0.0
+Delta Air Lines Inc.,Santa Maria,0.0
+Atlantic Southeast Airlines,Santa Maria,0.0
+Hawaiian Airlines Inc.,Santa Maria,0.0
+American Eagle Airlines Inc.,Santa Maria,0.0
+Virgin America,Santa Maria,0.0
+United Air Lines Inc.,Indianapolis,10.41523118766999
+American Airlines Inc.,Indianapolis,6.46800731261426
+US Airways Inc.,Indianapolis,2.393835616438356
+Frontier Airlines Inc.,Indianapolis,11.709986320109438
+JetBlue Airways,Indianapolis,0.0
+Skywest Airlines Inc.,Indianapolis,14.817535545023697
+Alaska Airlines Inc.,Indianapolis,0.0
+Spirit Air Lines,Indianapolis,0.0
+Southwest Airlines Co.,Indianapolis,8.461797975788848
+Delta Air Lines Inc.,Indianapolis,7.152322404371585
+Atlantic Southeast Airlines,Indianapolis,10.160621761658032
+Hawaiian Airlines Inc.,Indianapolis,0.0
+American Eagle Airlines Inc.,Indianapolis,7.193904361534419
+Virgin America,Indianapolis,0.0
+United Air Lines Inc.,Cleveland,9.44880915558305
+American Airlines Inc.,Cleveland,7.477941176470588
+US Airways Inc.,Cleveland,-0.2535675082327113
+Frontier Airlines Inc.,Cleveland,18.182244556113904
+JetBlue Airways,Cleveland,3.627388535031847
+Skywest Airlines Inc.,Cleveland,10.41703056768559
+Alaska Airlines Inc.,Cleveland,0.0
+Spirit Air Lines,Cleveland,13.455315145813735
+Southwest Airlines Co.,Cleveland,6.529237094563728
+Delta Air Lines Inc.,Cleveland,4.290917068889864
+Atlantic Southeast Airlines,Cleveland,6.3291987596278885
+Hawaiian Airlines Inc.,Cleveland,0.0
+American Eagle Airlines Inc.,Cleveland,11.704255319148936
+Virgin America,Cleveland,0.0
+United Air Lines Inc.,Greer,0.0
+American Airlines Inc.,Greer,0.0
+US Airways Inc.,Greer,0.0
+Frontier Airlines Inc.,Greer,0.0
+JetBlue Airways,Greer,0.0
+Skywest Airlines Inc.,Greer,1.5217391304347827
+Alaska Airlines Inc.,Greer,0.0
+Spirit Air Lines,Greer,0.0
+Southwest Airlines Co.,Greer,10.105585309869932
+Delta Air Lines Inc.,Greer,5.811715481171548
+Atlantic Southeast Airlines,Greer,6.529091527730521
+Hawaiian Airlines Inc.,Greer,0.0
+American Eagle Airlines Inc.,Greer,8.465665236051501
+Virgin America,Greer,0.0
+United Air Lines Inc.,Windsor Locks,14.850719424460431
+American Airlines Inc.,Windsor Locks,4.56093489148581
+US Airways Inc.,Windsor Locks,2.4741379310344827
+Frontier Airlines Inc.,Windsor Locks,0.0
+JetBlue Airways,Windsor Locks,10.117185045554509
+Skywest Airlines Inc.,Windsor Locks,14.514450867052023
+Alaska Airlines Inc.,Windsor Locks,0.0
+Spirit Air Lines,Windsor Locks,0.0
+Southwest Airlines Co.,Windsor Locks,8.317597292724196
+Delta Air Lines Inc.,Windsor Locks,4.211253701875617
+Atlantic Southeast Airlines,Windsor Locks,8.850284784377543
+Hawaiian Airlines Inc.,Windsor Locks,0.0
+American Eagle Airlines Inc.,Windsor Locks,12.950520833333334
+Virgin America,Windsor Locks,0.0
+United Air Lines Inc.,Abilene,0.0
+American Airlines Inc.,Abilene,0.0
+US Airways Inc.,Abilene,0.0
+Frontier Airlines Inc.,Abilene,0.0
+JetBlue Airways,Abilene,0.0
+Skywest Airlines Inc.,Abilene,0.0
+Alaska Airlines Inc.,Abilene,0.0
+Spirit Air Lines,Abilene,0.0
+Southwest Airlines Co.,Abilene,0.0
+Delta Air Lines Inc.,Abilene,0.0
+Atlantic Southeast Airlines,Abilene,0.0
+Hawaiian Airlines Inc.,Abilene,0.0
+American Eagle Airlines Inc.,Abilene,5.783989266547406
+Virgin America,Abilene,0.0
+United Air Lines Inc.,Richmond,14.76079734219269
+American Airlines Inc.,Richmond,11.182316655243318
+US Airways Inc.,Richmond,2.350375939849624
+Frontier Airlines Inc.,Richmond,0.0
+JetBlue Airways,Richmond,4.779489648531536
+Skywest Airlines Inc.,Richmond,17.0625
+Alaska Airlines Inc.,Richmond,0.0
+Spirit Air Lines,Richmond,0.0
+Southwest Airlines Co.,Richmond,6.884113584036838
+Delta Air Lines Inc.,Richmond,9.568040435458787
+Atlantic Southeast Airlines,Richmond,12.935698882572044
+Hawaiian Airlines Inc.,Richmond,0.0
+American Eagle Airlines Inc.,Richmond,14.77377521613833
+Virgin America,Richmond,0.0
+United Air Lines Inc.,Bakersfield,0.0
+American Airlines Inc.,Bakersfield,0.0
+US Airways Inc.,Bakersfield,0.0
+Frontier Airlines Inc.,Bakersfield,0.0
+JetBlue Airways,Bakersfield,0.0
+Skywest Airlines Inc.,Bakersfield,5.823325635103926
+Alaska Airlines Inc.,Bakersfield,0.0
+Spirit Air Lines,Bakersfield,0.0
+Southwest Airlines Co.,Bakersfield,0.0
+Delta Air Lines Inc.,Bakersfield,0.0
+Atlantic Southeast Airlines,Bakersfield,0.0
+Hawaiian Airlines Inc.,Bakersfield,0.0
+American Eagle Airlines Inc.,Bakersfield,0.0
+Virgin America,Bakersfield,0.0
+United Air Lines Inc.,Omaha,15.317857142857143
+American Airlines Inc.,Omaha,5.786874593892137
+US Airways Inc.,Omaha,1.4927113702623906
+Frontier Airlines Inc.,Omaha,7.790613718411552
+JetBlue Airways,Omaha,0.0
+Skywest Airlines Inc.,Omaha,8.853613053613053
+Alaska Airlines Inc.,Omaha,0.0
+Spirit Air Lines,Omaha,0.0
+Southwest Airlines Co.,Omaha,8.305821524320184
+Delta Air Lines Inc.,Omaha,4.195381062355658
+Atlantic Southeast Airlines,Omaha,7.831818181818182
+Hawaiian Airlines Inc.,Omaha,0.0
+American Eagle Airlines Inc.,Omaha,7.758373205741627
+Virgin America,Omaha,0.0
+United Air Lines Inc.,Redmond,0.0
+American Airlines Inc.,Redmond,0.0
+US Airways Inc.,Redmond,0.0
+Frontier Airlines Inc.,Redmond,0.0
+JetBlue Airways,Redmond,0.0
+Skywest Airlines Inc.,Redmond,4.088983050847458
+Alaska Airlines Inc.,Redmond,0.0
+Spirit Air Lines,Redmond,0.0
+Southwest Airlines Co.,Redmond,0.0
+Delta Air Lines Inc.,Redmond,0.0
+Atlantic Southeast Airlines,Redmond,0.0
+Hawaiian Airlines Inc.,Redmond,0.0
+American Eagle Airlines Inc.,Redmond,0.0
+Virgin America,Redmond,0.0
+United Air Lines Inc.,Ft. Lauderdale,9.224778761061946
+American Airlines Inc.,Ft. Lauderdale,5.373381568926123
+US Airways Inc.,Ft. Lauderdale,5.0396361273554255
+Frontier Airlines Inc.,Ft. Lauderdale,21.543884892086332
+JetBlue Airways,Ft. Lauderdale,14.90538712949397
+Skywest Airlines Inc.,Ft. Lauderdale,0.0
+Alaska Airlines Inc.,Ft. Lauderdale,7.973053892215569
+Spirit Air Lines,Ft. Lauderdale,13.620855990177162
+Southwest Airlines Co.,Ft. Lauderdale,9.351053503111974
+Delta Air Lines Inc.,Ft. Lauderdale,7.261179828734538
+Atlantic Southeast Airlines,Ft. Lauderdale,0.0
+Hawaiian Airlines Inc.,Ft. Lauderdale,0.0
+American Eagle Airlines Inc.,Ft. Lauderdale,0.0
+Virgin America,Ft. Lauderdale,10.089213300892133
+United Air Lines Inc.,Cedar Rapids,0.0
+American Airlines Inc.,Cedar Rapids,0.0
+US Airways Inc.,Cedar Rapids,0.0
+Frontier Airlines Inc.,Cedar Rapids,8.554455445544555
+JetBlue Airways,Cedar Rapids,0.0
+Skywest Airlines Inc.,Cedar Rapids,9.93888615081321
+Alaska Airlines Inc.,Cedar Rapids,0.0
+Spirit Air Lines,Cedar Rapids,0.0
+Southwest Airlines Co.,Cedar Rapids,0.0
+Delta Air Lines Inc.,Cedar Rapids,0.0
+Atlantic Southeast Airlines,Cedar Rapids,8.018907563025211
+Hawaiian Airlines Inc.,Cedar Rapids,0.0
+American Eagle Airlines Inc.,Cedar Rapids,11.103795507358637
+Virgin America,Cedar Rapids,0.0
+United Air Lines Inc.,Tampa,10.294900605012964
+American Airlines Inc.,Tampa,7.26192232055064
+US Airways Inc.,Tampa,3.871794871794872
+Frontier Airlines Inc.,Tampa,18.927165354330707
+JetBlue Airways,Tampa,15.874078171091446
+Skywest Airlines Inc.,Tampa,0.0
+Alaska Airlines Inc.,Tampa,7.089820359281437
+Spirit Air Lines,Tampa,16.307990690457718
+Southwest Airlines Co.,Tampa,10.389135687008027
+Delta Air Lines Inc.,Tampa,8.399652140303411
+Atlantic Southeast Airlines,Tampa,0.0
+Hawaiian Airlines Inc.,Tampa,0.0
+American Eagle Airlines Inc.,Tampa,0.0
+Virgin America,Tampa,0.0
+United Air Lines Inc.,Syracuse,0.0
+American Airlines Inc.,Syracuse,0.44280442804428044
+US Airways Inc.,Syracuse,-0.6107594936708861
+Frontier Airlines Inc.,Syracuse,0.0
+JetBlue Airways,Syracuse,6.415713196033562
+Skywest Airlines Inc.,Syracuse,12.483050847457626
+Alaska Airlines Inc.,Syracuse,0.0
+Spirit Air Lines,Syracuse,0.0
+Southwest Airlines Co.,Syracuse,0.0
+Delta Air Lines Inc.,Syracuse,5.2578671328671325
+Atlantic Southeast Airlines,Syracuse,6.459919028340081
+Hawaiian Airlines Inc.,Syracuse,0.0
+American Eagle Airlines Inc.,Syracuse,10.061739943872778
+Virgin America,Syracuse,0.0
+United Air Lines Inc.,Rochester,10.801980198019802
+American Airlines Inc.,Rochester,2.0779220779220777
+US Airways Inc.,Rochester,6.720779220779221
+Frontier Airlines Inc.,Rochester,0.0
+JetBlue Airways,Rochester,5.380952380952381
+Skywest Airlines Inc.,Rochester,0.0
+Alaska Airlines Inc.,Rochester,0.0
+Spirit Air Lines,Rochester,0.0
+Southwest Airlines Co.,Rochester,8.63717277486911
+Delta Air Lines Inc.,Rochester,9.71801140994295
+Atlantic Southeast Airlines,Rochester,6.639004149377594
+Hawaiian Airlines Inc.,Rochester,0.0
+American Eagle Airlines Inc.,Rochester,8.130820399113082
+Virgin America,Rochester,0.0
+United Air Lines Inc.,Tyler,0.0
+American Airlines Inc.,Tyler,0.0
+US Airways Inc.,Tyler,0.0
+Frontier Airlines Inc.,Tyler,0.0
+JetBlue Airways,Tyler,0.0
+Skywest Airlines Inc.,Tyler,0.0
+Alaska Airlines Inc.,Tyler,0.0
+Spirit Air Lines,Tyler,0.0
+Southwest Airlines Co.,Tyler,0.0
+Delta Air Lines Inc.,Tyler,0.0
+Atlantic Southeast Airlines,Tyler,4.976234003656307
+Hawaiian Airlines Inc.,Tyler,0.0
+American Eagle Airlines Inc.,Tyler,12.842857142857143
+Virgin America,Tyler,0.0
+United Air Lines Inc.,Lansing,0.0
+American Airlines Inc.,Lansing,0.0
+US Airways Inc.,Lansing,0.0
+Frontier Airlines Inc.,Lansing,0.0
+JetBlue Airways,Lansing,0.0
+Skywest Airlines Inc.,Lansing,9.97012987012987
+Alaska Airlines Inc.,Lansing,0.0
+Spirit Air Lines,Lansing,0.0
+Southwest Airlines Co.,Lansing,0.0
+Delta Air Lines Inc.,Lansing,-3.25
+Atlantic Southeast Airlines,Lansing,5.053449951409135
+Hawaiian Airlines Inc.,Lansing,0.0
+American Eagle Airlines Inc.,Lansing,0.0
+Virgin America,Lansing,0.0
+United Air Lines Inc.,Fayetteville/Springdale/Rogers,0.0
+American Airlines Inc.,Fayetteville/Springdale/Rogers,-7.055555555555555
+US Airways Inc.,Fayetteville/Springdale/Rogers,0.0
+Frontier Airlines Inc.,Fayetteville/Springdale/Rogers,0.0
+JetBlue Airways,Fayetteville/Springdale/Rogers,0.0
+Skywest Airlines Inc.,Fayetteville/Springdale/Rogers,8.488019169329073
+Alaska Airlines Inc.,Fayetteville/Springdale/Rogers,0.0
+Spirit Air Lines,Fayetteville/Springdale/Rogers,0.0
+Southwest Airlines Co.,Fayetteville/Springdale/Rogers,0.0
+Delta Air Lines Inc.,Fayetteville/Springdale/Rogers,3.389925373134328
+Atlantic Southeast Airlines,Fayetteville/Springdale/Rogers,9.824172072379652
+Hawaiian Airlines Inc.,Fayetteville/Springdale/Rogers,0.0
+American Eagle Airlines Inc.,Fayetteville/Springdale/Rogers,15.450023463162834
+Virgin America,Fayetteville/Springdale/Rogers,0.0
+United Air Lines Inc.,Greensboro,0.0
+American Airlines Inc.,Greensboro,-0.1276595744680851
+US Airways Inc.,Greensboro,1.0
+Frontier Airlines Inc.,Greensboro,10.924812030075188
+JetBlue Airways,Greensboro,0.0
+Skywest Airlines Inc.,Greensboro,26.333333333333332
+Alaska Airlines Inc.,Greensboro,0.0
+Spirit Air Lines,Greensboro,0.0
+Southwest Airlines Co.,Greensboro,0.0
+Delta Air Lines Inc.,Greensboro,5.380750925436277
+Atlantic Southeast Airlines,Greensboro,12.00733418367347
+Hawaiian Airlines Inc.,Greensboro,0.0
+American Eagle Airlines Inc.,Greensboro,13.026248941574936
+Virgin America,Greensboro,0.0
+United Air Lines Inc.,Newark,18.691311947843342
+American Airlines Inc.,Newark,8.261796904492261
+US Airways Inc.,Newark,5.502477700693756
+Frontier Airlines Inc.,Newark,0.0
+JetBlue Airways,Newark,11.102473498233216
+Skywest Airlines Inc.,Newark,299.5
+Alaska Airlines Inc.,Newark,2.852986217457887
+Spirit Air Lines,Newark,0.0
+Southwest Airlines Co.,Newark,13.21781990521327
+Delta Air Lines Inc.,Newark,10.645824929407018
+Atlantic Southeast Airlines,Newark,9.634823734612418
+Hawaiian Airlines Inc.,Newark,0.0
+American Eagle Airlines Inc.,Newark,16.555248618784532
+Virgin America,Newark,7.33719646799117
+United Air Lines Inc.,West Palm Beach,14.756121449559256
+American Airlines Inc.,West Palm Beach,5.419902912621359
+US Airways Inc.,West Palm Beach,3.792008757525999
+Frontier Airlines Inc.,West Palm Beach,21.315217391304348
+JetBlue Airways,West Palm Beach,17.659132281553397
+Skywest Airlines Inc.,West Palm Beach,9.157894736842104
+Alaska Airlines Inc.,West Palm Beach,0.0
+Spirit Air Lines,West Palm Beach,6.9506578947368425
+Southwest Airlines Co.,West Palm Beach,12.673705179282868
+Delta Air Lines Inc.,West Palm Beach,11.23719533733663
+Atlantic Southeast Airlines,West Palm Beach,14.671328671328672
+Hawaiian Airlines Inc.,West Palm Beach,0.0
+American Eagle Airlines Inc.,West Palm Beach,0.0
+Virgin America,West Palm Beach,0.0
+United Air Lines Inc.,Ft. Myers,6.802132196162047
+American Airlines Inc.,Ft. Myers,6.191119005328597
+US Airways Inc.,Ft. Myers,3.747088186356073
+Frontier Airlines Inc.,Ft. Myers,14.029082774049217
+JetBlue Airways,Ft. Myers,14.798023314749113
+Skywest Airlines Inc.,Ft. Myers,21.78723404255319
+Alaska Airlines Inc.,Ft. Myers,0.0
+Spirit Air Lines,Ft. Myers,14.757090576395242
+Southwest Airlines Co.,Ft. Myers,8.60852158993423
+Delta Air Lines Inc.,Ft. Myers,4.840785169029444
+Atlantic Southeast Airlines,Ft. Myers,7.584905660377358
+Hawaiian Airlines Inc.,Ft. Myers,0.0
+American Eagle Airlines Inc.,Ft. Myers,0.0
+Virgin America,Ft. Myers,0.0
+United Air Lines Inc.,Oakland,0.0
+American Airlines Inc.,Oakland,1.060200668896321
+US Airways Inc.,Oakland,8.552542372881357
+Frontier Airlines Inc.,Oakland,0.0
+JetBlue Airways,Oakland,5.783646888567294
+Skywest Airlines Inc.,Oakland,7.721644826028016
+Alaska Airlines Inc.,Oakland,-1.736455463728191
+Spirit Air Lines,Oakland,9.66435331230284
+Southwest Airlines Co.,Oakland,11.03537287871711
+Delta Air Lines Inc.,Oakland,2.32208922742111
+Atlantic Southeast Airlines,Oakland,0.0
+Hawaiian Airlines Inc.,Oakland,2.9400260756192957
+American Eagle Airlines Inc.,Oakland,0.0
+Virgin America,Oakland,0.0
+United Air Lines Inc.,Providence,9.127272727272727
+American Airlines Inc.,Providence,2.5747422680412373
+US Airways Inc.,Providence,4.755671902268761
+Frontier Airlines Inc.,Providence,0.0
+JetBlue Airways,Providence,6.88422131147541
+Skywest Airlines Inc.,Providence,1.864864864864865
+Alaska Airlines Inc.,Providence,0.0
+Spirit Air Lines,Providence,0.0
+Southwest Airlines Co.,Providence,8.35706949674769
+Delta Air Lines Inc.,Providence,6.229395604395604
+Atlantic Southeast Airlines,Providence,11.076171875
+Hawaiian Airlines Inc.,Providence,0.0
+American Eagle Airlines Inc.,Providence,0.0
+Virgin America,Providence,0.0
+United Air Lines Inc.,Reno,3.317780580075662
+American Airlines Inc.,Reno,9.123609394313968
+US Airways Inc.,Reno,2.3932980599647267
+Frontier Airlines Inc.,Reno,0.0
+JetBlue Airways,Reno,18.714285714285715
+Skywest Airlines Inc.,Reno,11.247246486897076
+Alaska Airlines Inc.,Reno,0.0
+Spirit Air Lines,Reno,0.0
+Southwest Airlines Co.,Reno,8.09085020242915
+Delta Air Lines Inc.,Reno,1.0624327233584498
+Atlantic Southeast Airlines,Reno,0.0
+Hawaiian Airlines Inc.,Reno,0.0
+American Eagle Airlines Inc.,Reno,0.0
+Virgin America,Reno,0.0
+United Air Lines Inc.,Pittsburgh,9.501336898395722
+American Airlines Inc.,Pittsburgh,4.052759987801159
+US Airways Inc.,Pittsburgh,3.2275474956822108
+Frontier Airlines Inc.,Pittsburgh,0.0
+JetBlue Airways,Pittsburgh,4.2690735694822886
+Skywest Airlines Inc.,Pittsburgh,10.19098712446352
+Alaska Airlines Inc.,Pittsburgh,0.0
+Spirit Air Lines,Pittsburgh,0.0
+Southwest Airlines Co.,Pittsburgh,6.900267348599326
+Delta Air Lines Inc.,Pittsburgh,6.975007181844298
+Atlantic Southeast Airlines,Pittsburgh,8.454683929931456
+Hawaiian Airlines Inc.,Pittsburgh,0.0
+American Eagle Airlines Inc.,Pittsburgh,13.646853146853147
+Virgin America,Pittsburgh,0.0
+United Air Lines Inc.,Albuquerque,14.126470588235295
+American Airlines Inc.,Albuquerque,8.20646221248631
+US Airways Inc.,Albuquerque,2.1875
+Frontier Airlines Inc.,Albuquerque,0.0
+JetBlue Airways,Albuquerque,15.586715867158672
+Skywest Airlines Inc.,Albuquerque,4.893832463945996
+Alaska Airlines Inc.,Albuquerque,-6.709580838323354
+Spirit Air Lines,Albuquerque,0.0
+Southwest Airlines Co.,Albuquerque,10.692677959825975
+Delta Air Lines Inc.,Albuquerque,5.347334410339257
+Atlantic Southeast Airlines,Albuquerque,5.894865525672372
+Hawaiian Airlines Inc.,Albuquerque,0.0
+American Eagle Airlines Inc.,Albuquerque,13.471615720524017
+Virgin America,Albuquerque,0.0
+United Air Lines Inc.,Miami,13.862921348314607
+American Airlines Inc.,Miami,13.033391842193247
+US Airways Inc.,Miami,7.193072118114707
+Frontier Airlines Inc.,Miami,20.516608824987607
+JetBlue Airways,Miami,0.0
+Skywest Airlines Inc.,Miami,13.160220994475138
+Alaska Airlines Inc.,Miami,0.0
+Spirit Air Lines,Miami,0.0
+Southwest Airlines Co.,Miami,0.0
+Delta Air Lines Inc.,Miami,11.191237418590882
+Atlantic Southeast Airlines,Miami,0.0
+Hawaiian Airlines Inc.,Miami,0.0
+American Eagle Airlines Inc.,Miami,7.948536445379759
+Virgin America,Miami,0.0
+United Air Lines Inc.,Baltimore,12.615981119352664
+American Airlines Inc.,Baltimore,9.339141104294479
+US Airways Inc.,Baltimore,5.776470588235294
+Frontier Airlines Inc.,Baltimore,0.0
+JetBlue Airways,Baltimore,3.949826989619377
+Skywest Airlines Inc.,Baltimore,156.0
+Alaska Airlines Inc.,Baltimore,7.36231884057971
+Spirit Air Lines,Baltimore,19.063760806916427
+Southwest Airlines Co.,Baltimore,14.321242864184967
+Delta Air Lines Inc.,Baltimore,8.876310919185688
+Atlantic Southeast Airlines,Baltimore,7.18475073313783
+Hawaiian Airlines Inc.,Baltimore,0.0
+American Eagle Airlines Inc.,Baltimore,17.8574144486692
+Virgin America,Baltimore,0.0
+United Air Lines Inc.,New York,15.700216037615961
+American Airlines Inc.,New York,6.596647789028087
+US Airways Inc.,New York,6.92501692620176
+Frontier Airlines Inc.,New York,22.988276670574443
+JetBlue Airways,New York,15.91921726041144
+Skywest Airlines Inc.,New York,4.63265306122449
+Alaska Airlines Inc.,New York,0.0
+Spirit Air Lines,New York,15.95458440445587
+Southwest Airlines Co.,New York,16.872353297035694
+Delta Air Lines Inc.,New York,14.722837951301427
+Atlantic Southeast Airlines,New York,15.94412807564199
+Hawaiian Airlines Inc.,New York,0.0
+American Eagle Airlines Inc.,New York,13.868471953578336
+Virgin America,New York,11.440721649484535
+United Air Lines Inc.,Tulsa,10.4
+American Airlines Inc.,Tulsa,6.061814993423937
+US Airways Inc.,Tulsa,0.0
+Frontier Airlines Inc.,Tulsa,0.0
+JetBlue Airways,Tulsa,0.0
+Skywest Airlines Inc.,Tulsa,8.420523138832998
+Alaska Airlines Inc.,Tulsa,0.0
+Spirit Air Lines,Tulsa,0.0
+Southwest Airlines Co.,Tulsa,9.137413962635202
+Delta Air Lines Inc.,Tulsa,4.441233140655106
+Atlantic Southeast Airlines,Tulsa,5.455306427503737
+Hawaiian Airlines Inc.,Tulsa,0.0
+American Eagle Airlines Inc.,Tulsa,12.849166062364032
+Virgin America,Tulsa,113.0
+United Air Lines Inc.,Little Rock,0.0
+American Airlines Inc.,Little Rock,12.555555555555555
+US Airways Inc.,Little Rock,0.0
+Frontier Airlines Inc.,Little Rock,0.0
+JetBlue Airways,Little Rock,0.0
+Skywest Airlines Inc.,Little Rock,11.828817733990148
+Alaska Airlines Inc.,Little Rock,0.0
+Spirit Air Lines,Little Rock,0.0
+Southwest Airlines Co.,Little Rock,8.673771204871683
+Delta Air Lines Inc.,Little Rock,5.0576923076923075
+Atlantic Southeast Airlines,Little Rock,8.629971590909092
+Hawaiian Airlines Inc.,Little Rock,0.0
+American Eagle Airlines Inc.,Little Rock,14.58351409978308
+Virgin America,Little Rock,0.0
+United Air Lines Inc.,New Orleans,10.750448028673835
+American Airlines Inc.,New Orleans,5.975648916242975
+US Airways Inc.,New Orleans,5.935364727608495
+Frontier Airlines Inc.,New Orleans,18.362815884476536
+JetBlue Airways,New Orleans,15.176151761517616
+Skywest Airlines Inc.,New Orleans,9.067256637168141
+Alaska Airlines Inc.,New Orleans,0.9486404833836858
+Spirit Air Lines,New Orleans,15.884135472370767
+Southwest Airlines Co.,New Orleans,8.139505316689783
+Delta Air Lines Inc.,New Orleans,7.79012702078522
+Atlantic Southeast Airlines,New Orleans,5.551779935275081
+Hawaiian Airlines Inc.,New Orleans,0.0
+American Eagle Airlines Inc.,New Orleans,7.2
+Virgin America,New Orleans,0.0
+United Air Lines Inc.,Oklahoma City,8.598290598290598
+American Airlines Inc.,Oklahoma City,5.878787878787879
+US Airways Inc.,Oklahoma City,0.0
+Frontier Airlines Inc.,Oklahoma City,16.03846153846154
+JetBlue Airways,Oklahoma City,0.0
+Skywest Airlines Inc.,Oklahoma City,9.968786578228638
+Alaska Airlines Inc.,Oklahoma City,0.0
+Spirit Air Lines,Oklahoma City,0.0
+Southwest Airlines Co.,Oklahoma City,7.498958694897605
+Delta Air Lines Inc.,Oklahoma City,5.169241101410343
+Atlantic Southeast Airlines,Oklahoma City,10.459506031016657
+Hawaiian Airlines Inc.,Oklahoma City,0.0
+American Eagle Airlines Inc.,Oklahoma City,13.814520139234212
+Virgin America,Oklahoma City,0.0
+United Air Lines Inc.,Appleton,0.0
+American Airlines Inc.,Appleton,0.0
+US Airways Inc.,Appleton,0.0
+Frontier Airlines Inc.,Appleton,0.0
+JetBlue Airways,Appleton,0.0
+Skywest Airlines Inc.,Appleton,5.887981330221703
+Alaska Airlines Inc.,Appleton,0.0
+Spirit Air Lines,Appleton,0.0
+Southwest Airlines Co.,Appleton,0.0
+Delta Air Lines Inc.,Appleton,3.6524663677130045
+Atlantic Southeast Airlines,Appleton,6.1418826739427015
+Hawaiian Airlines Inc.,Appleton,0.0
+American Eagle Airlines Inc.,Appleton,0.0
+Virgin America,Appleton,0.0
+United Air Lines Inc.,Pensacola,0.0
+American Airlines Inc.,Pensacola,20.649350649350648
+US Airways Inc.,Pensacola,0.0
+Frontier Airlines Inc.,Pensacola,0.0
+JetBlue Airways,Pensacola,0.0
+Skywest Airlines Inc.,Pensacola,0.0
+Alaska Airlines Inc.,Pensacola,0.0
+Spirit Air Lines,Pensacola,0.0
+Southwest Airlines Co.,Pensacola,10.0199370409234
+Delta Air Lines Inc.,Pensacola,5.286284953395473
+Atlantic Southeast Airlines,Pensacola,6.217855137563166
+Hawaiian Airlines Inc.,Pensacola,0.0
+American Eagle Airlines Inc.,Pensacola,8.39929328621908
+Virgin America,Pensacola,0.0
+United Air Lines Inc.,Memphis,21.14018691588785
+American Airlines Inc.,Memphis,11.696446700507614
+US Airways Inc.,Memphis,2.4583333333333335
+Frontier Airlines Inc.,Memphis,9.03305785123967
+JetBlue Airways,Memphis,0.0
+Skywest Airlines Inc.,Memphis,10.767873723305478
+Alaska Airlines Inc.,Memphis,0.0
+Spirit Air Lines,Memphis,0.0
+Southwest Airlines Co.,Memphis,9.57204455623428
+Delta Air Lines Inc.,Memphis,6.39469157041042
+Atlantic Southeast Airlines,Memphis,9.882562277580071
+Hawaiian Airlines Inc.,Memphis,0.0
+American Eagle Airlines Inc.,Memphis,10.916201117318435
+Virgin America,Memphis,0.0
+United Air Lines Inc.,Knoxville,0.0
+American Airlines Inc.,Knoxville,0.0
+US Airways Inc.,Knoxville,0.0
+Frontier Airlines Inc.,Knoxville,9.699029126213592
+JetBlue Airways,Knoxville,0.0
+Skywest Airlines Inc.,Knoxville,25.78082191780822
+Alaska Airlines Inc.,Knoxville,0.0
+Spirit Air Lines,Knoxville,0.0
+Southwest Airlines Co.,Knoxville,0.0
+Delta Air Lines Inc.,Knoxville,4.326530612244898
+Atlantic Southeast Airlines,Knoxville,10.908003300330034
+Hawaiian Airlines Inc.,Knoxville,0.0
+American Eagle Airlines Inc.,Knoxville,15.600950118764846
+Virgin America,Knoxville,0.0
+United Air Lines Inc.,Manchester,0.0
+American Airlines Inc.,Manchester,0.0
+US Airways Inc.,Manchester,0.0
+Frontier Airlines Inc.,Manchester,0.0
+JetBlue Airways,Manchester,0.0
+Skywest Airlines Inc.,Manchester,0.0
+Alaska Airlines Inc.,Manchester,0.0
+Spirit Air Lines,Manchester,0.0
+Southwest Airlines Co.,Manchester,6.692086330935251
+Delta Air Lines Inc.,Manchester,2.240990990990991
+Atlantic Southeast Airlines,Manchester,10.194244604316546
+Hawaiian Airlines Inc.,Manchester,0.0
+American Eagle Airlines Inc.,Manchester,0.0
+Virgin America,Manchester,0.0
+United Air Lines Inc.,Savannah,0.0
+American Airlines Inc.,Savannah,0.0
+US Airways Inc.,Savannah,0.0
+Frontier Airlines Inc.,Savannah,0.0
+JetBlue Airways,Savannah,15.895325203252032
+Skywest Airlines Inc.,Savannah,21.358974358974358
+Alaska Airlines Inc.,Savannah,0.0
+Spirit Air Lines,Savannah,0.0
+Southwest Airlines Co.,Savannah,0.0
+Delta Air Lines Inc.,Savannah,6.2674976030680725
+Atlantic Southeast Airlines,Savannah,14.097724729578516
+Hawaiian Airlines Inc.,Savannah,0.0
+American Eagle Airlines Inc.,Savannah,11.001751313485114
+Virgin America,Savannah,0.0
+United Air Lines Inc.,Charlotte,14.070631970260223
+American Airlines Inc.,Charlotte,8.741455665736016
+US Airways Inc.,Charlotte,7.61026003972512
+Frontier Airlines Inc.,Charlotte,12.873873873873874
+JetBlue Airways,Charlotte,12.608380338436744
+Skywest Airlines Inc.,Charlotte,20.0225988700565
+Alaska Airlines Inc.,Charlotte,0.0
+Spirit Air Lines,Charlotte,0.0
+Southwest Airlines Co.,Charlotte,12.192045454545454
+Delta Air Lines Inc.,Charlotte,6.287792642140468
+Atlantic Southeast Airlines,Charlotte,12.122295673076923
+Hawaiian Airlines Inc.,Charlotte,0.0
+American Eagle Airlines Inc.,Charlotte,10.947826086956521
+Virgin America,Charlotte,0.0
+United Air Lines Inc.,Green Bay,0.0
+American Airlines Inc.,Green Bay,0.0
+US Airways Inc.,Green Bay,0.0
+Frontier Airlines Inc.,Green Bay,0.0
+JetBlue Airways,Green Bay,0.0
+Skywest Airlines Inc.,Green Bay,5.956185567010309
+Alaska Airlines Inc.,Green Bay,0.0
+Spirit Air Lines,Green Bay,0.0
+Southwest Airlines Co.,Green Bay,0.0
+Delta Air Lines Inc.,Green Bay,2.126418152350081
+Atlantic Southeast Airlines,Green Bay,4.298498845265589
+Hawaiian Airlines Inc.,Green Bay,0.0
+American Eagle Airlines Inc.,Green Bay,4.737489745693191
+Virgin America,Green Bay,0.0
+United Air Lines Inc.,Allentown,0.0
+American Airlines Inc.,Allentown,0.0
+US Airways Inc.,Allentown,0.0
+Frontier Airlines Inc.,Allentown,0.0
+JetBlue Airways,Allentown,0.0
+Skywest Airlines Inc.,Allentown,3.6666666666666665
+Alaska Airlines Inc.,Allentown,0.0
+Spirit Air Lines,Allentown,0.0
+Southwest Airlines Co.,Allentown,0.0
+Delta Air Lines Inc.,Allentown,2.9123376623376624
+Atlantic Southeast Airlines,Allentown,9.958977091102824
+Hawaiian Airlines Inc.,Allentown,0.0
+American Eagle Airlines Inc.,Allentown,0.0
+Virgin America,Allentown,0.0
