@@ -1,4 +1,4 @@
-var topo,projection,path,svg,g,centered,throttleTimerairport,airport;
+var topo,projection,path,svg,g,centered,throttleTimer,airport,airport;
 var width = 860;
 var height = 500;
 var state = "ALL";
@@ -194,7 +194,7 @@ catch(err) {
  * Update the air routes
  * @param {object} c - contain airport
  */
-function add_line(c) {
+function add_lines(c) {
   d3.selectAll("line").remove();
   var origin_airport = c.id;
   if(c.id !== airport){
