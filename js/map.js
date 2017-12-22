@@ -1,53 +1,65 @@
-var topo,projection,path,svg,g,centered,throttleTimer;
+var topo,projection,path,svg,g,centered,throttleTimerairport,airport;
 var width = 860;
 var height = 500;
 var state = "ALL";
 var order = "asc";
-var airport;
+
 d3.select(window).on("resize", throttle);
 setup(state);
 
-
+/**
+ * Set up the initial content (map)
+ * @param {string} size - L, M or S class airport to display
+ */
 function setup(size){
   projection = d3.geo.albersUsa()
-  .scale(1070)
-  .translate([width / 2, height / 2]);
+    .scale(1070)
+    .translate([width / 2, height / 2]);
   path = d3.geo.path().projection(projection);
   svg = d3.select("#map").append("svg")
-  .attr("width", width)
-  .attr("height", height)
-  .append("g");
+    .attr("width", width)
+    .attr("height", height)
+    .append("g");
   g = svg.append("g");
 
   d3.json("map/us.json", function(error, us) {
     if (error) throw error;
-
     g.append("g")
-    .attr("id", "states")
-    .selectAll("path")
-    .data(topojson.feature(us, us.objects.states).features)
-    .enter().append("path")
-    .attr("d", path)
-    .on("click", clicked);
-
+      .attr("id", "states")
+      .selectAll("path")
+      .data(topojson.feature(us, us.objects.states).features)
+      .enter().append("path")
+      .attr("d", path)
+      .on("click", clicked);
     g.append("path")
-    .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-    .attr("id", "state-borders")
-    .attr("d", path);
-
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) {return a !== b;}))
+      .attr("id", "state-borders")
+      .attr("d", path);
     var usa = topojson.feature(us, us.objects.states).features;
     topo = usa;
 
+    //Draw the airports
     draw(topo,size);
+    //Display the legend
     legend();
+    //Display the violin plot
     violin();
+    //Display available airline(s)
     airlines();
+    //Display the delays heatmap
+    //heatmap();
   });
   d3.select("#order").on("click", function() {
+    //Order button (asc or desc)
     print_speed();
   });
 }
 
+/**
+ * Draw the airports
+ * @param topo - topojson
+ * @param {string} size - L, M or S class airport to display
+ */
 function draw(topo,size) {
   if(size === null ) size = "ALL";
 
@@ -69,6 +81,10 @@ function draw(topo,size) {
   });
 }
 
+/**
+ * Update the map
+ * @param {string} size - L, M or S class airport to display
+ */
 function redraw(size) {
   if(size == state) size = "ALL";
   state = size;
@@ -76,6 +92,10 @@ function redraw(size) {
   setup(size);
 }
 
+/**
+ * Update the map
+ * @param {object} d - contain airports parameters
+ */
 function addpoint(d) {
   var lon = d.latitude;
   var lat = d.longitude;
@@ -102,16 +122,16 @@ function addpoint(d) {
     }
 
     gpoint.append("svg:circle")
-    .attr("cx", x)
-    .attr("cy", y)
-    .attr("class","point")
-    .attr("id",d.name)
-    .attr("r", value)
-    .style("fill",color)
-    .style("cursor","pointer")
-    .call(d3.helper.tooltip()
-    .style({color: 'black'})
-    .text(text+": "+number_of_flight)
+      .attr("cx", x)
+      .attr("cy", y)
+      .attr("class","point")
+      .attr("id",d.name)
+      .attr("r", value)
+      .style("fill",color)
+      .style("cursor","pointer")
+      .call(d3.helper.tooltip()
+      .style({color: 'black'})
+      .text(text+": "+number_of_flight)
   )
   .on("mouseover", function() {
     d3.select(this).style("stroke","white");
@@ -141,6 +161,7 @@ function addpoint(d) {
       data.forEach(function(d){
         airlines.push(d.AIRLINE);
       });
+      //unique key
       airlines = airlines.filter((v, i, a) => a.indexOf(v) === i);
       if(airlines.length > 4){
         var temp = "";
@@ -160,7 +181,8 @@ function addpoint(d) {
         }
       }
     });
-    add_line(this);
+    //line representing air routes
+    add_lines(this);
   });
 }
 catch(err) {
@@ -168,6 +190,10 @@ catch(err) {
 }
 }
 
+/**
+ * Update the air routes
+ * @param {object} c - contain airport
+ */
 function add_line(c) {
   d3.selectAll("line").remove();
   var origin_airport = c.id;
@@ -198,7 +224,7 @@ function add_line(c) {
   }
   else {
     airport = null;
-    initial();
+    // initial();
   }
 }
 
@@ -229,6 +255,10 @@ function move() {
   d3.selectAll(".country").style("stroke-width", 1.5 / s);
 }
 
+/**
+ * Zoom
+ * @param {object} d
+ */
 function clicked(d) {
   var x, y, k;
   if (d && centered !== d) {
@@ -254,6 +284,9 @@ function clicked(d) {
   .style("stroke-width", 1.5 / k + "px");
 }
 
+/**
+ * Violin plot
+ */
 function violin(){
   var chart1;
   d3.csv('data/speed.csv', function(error, data) {
@@ -272,47 +305,53 @@ function violin(){
   });
 }
 
+/**
+ * Legend
+ */
 function legend(){
   var legendData = [[">200", "#6D6875", "circle", "L", 6], ["50<.<200", "#4E8098", "circle", "M", 4.5], ["1<.<50", "#A31621", "circle", "S", 3]];
   var svg = d3.select('#legend').append('svg').attr('width', 500).attr('height', 100);
   var legend = svg.append('g')
-  .attr("class", "legend")
-  .attr("height", 0)
-  .attr("width", 0)
-  .attr('transform', 'translate(20,20)');
+    .attr("class", "legend")
+    .attr("height", 0)
+    .attr("width", 0)
+    .attr('transform', 'translate(20,20)');
 
   var legendRect = legend
-  .selectAll('g')
-  .data(legendData);
+    .selectAll('g')
+    .data(legendData);
 
   var legendRectE = legendRect.enter()
-  .append("g")
-  .attr("transform", function(d,i){
-    return 'translate(0, ' + (i * 20) + ')';
-  });
+    .append("g")
+    .attr("transform", function(d,i){
+      return 'translate(0, ' + (i * 20) + ')';
+    });
 
   legendRectE
-  .append("path")
-  .attr("d", d3.svg.symbol().type((d) => {
-    return d[2]
-  }))
-  .style("fill", function (d) {
-    return d[1];
-  })
-  .style("cursor","pointer")
-  .on("click", function(d,i) {
-    redraw(d[3]);
-  });
+    .append("path")
+    .attr("d", d3.svg.symbol().type((d) => {
+      return d[2]
+    }))
+    .style("fill", function (d) {
+      return d[1];
+    })
+    .style("cursor","pointer")
+    .on("click", function(d,i) {
+      redraw(d[3]);
+    });
 
   legendRectE.append("text")
-  .attr("x", 10)
-  .attr("y", 5)
-  .text(function (d) {
-    return d[0];
-  })
-  .style("fill", "#F6F7EB");
+    .attr("x", 10)
+    .attr("y", 5)
+    .text(function (d) {
+      return d[0];
+    })
+    .style("fill", "#F6F7EB");
 }
 
+/**
+ * Display the airlines average speed
+ */
 function airlines(){
   d3.csv("data/airlines.csv", function(data) {
     data.sort(function(a,b) {
@@ -324,6 +363,9 @@ function airlines(){
   });
 }
 
+/**
+ * Order the airlines average speed
+ */
 function print_speed(){
   $("#airline_code").empty();
   d3.csv("data/airlines.csv", function(data) {

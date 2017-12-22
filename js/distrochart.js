@@ -1,5 +1,6 @@
 /**
 * @fileOverview A D3 based distribution chart system. Supports: Box plots, Violin plots, Notched box plots, trend lines, beeswarm plot
+*Many thanks to Andrew Sielen’s Block #92929960988a8935d907e39e60ea8417
 * @version 3.0
 */
 
@@ -22,8 +23,6 @@
 function makeDistroChart(settings) {
 
     var chart = {};
-
-    // Defaults
     chart.settings = {
         data: null,
         xName: null,
@@ -40,7 +39,6 @@ function makeDistroChart(settings) {
     for (var setting in settings) {
         chart.settings[setting] = settings[setting]
     }
-
 
     function formatAsFloat(d) {
         if (d % 1 !== 0) {
@@ -66,13 +64,11 @@ function makeDistroChart(settings) {
     /**
     * Takes an array, function, or object mapping and created a color function from it
     * @param {function|[]|object} colorOptions
-    * @returns {function} Function to be used to determine chart colors
     */
     function getColorFunct(colorOptions) {
         if (typeof colorOptions == 'function') {
             return colorOptions
         } else if (Array.isArray(colorOptions)) {
-            //  If an array is provided, map it to the domain
             var colorMap = {}, cColor = 0;
             for (var cName in chart.groupObjs) {
                 colorMap[cName] = colorOptions[cColor];
@@ -82,7 +78,6 @@ function makeDistroChart(settings) {
                 return colorMap[group];
             }
         } else if (typeof colorOptions == 'object') {
-            // if an object is provided, assume it maps to  the colors
             return function (group) {
                 return colorOptions[group];
             }
@@ -95,7 +90,6 @@ function makeDistroChart(settings) {
     * Takes a percentage as returns the values that correspond to that percentage of the group range witdh
     * @param objWidth Percentage of range band
     * @param gName The bin name to use to get the x shift
-    * @returns {{left: null, right: null, middle: null}}
     */
     function getObjWidth(objWidth, gName) {
         var objSize = {left: null, right: null, middle: null};
@@ -112,7 +106,6 @@ function makeDistroChart(settings) {
     * Adds jitter to the  scatter point plot
     * @param doJitter true or false, add jitter to the point
     * @param width percent of the range band to cover with the jitter
-    * @returns {number}
     */
     function addJitter(doJitter, width) {
         if (doJitter !== true || width == 0) {
@@ -135,7 +128,6 @@ function makeDistroChart(settings) {
     * Closure that creates the tooltip hover function
     * @param groupName Name of the x group
     * @param metrics Object to use to get values for the group
-    * @returns {Function} A function that provides the values for the tooltip
     */
     function tooltipHover(groupName, metrics) {
         var tooltipString = "Airline: " + groupName;
@@ -194,7 +186,6 @@ function makeDistroChart(settings) {
                     break;
                 }
             }
-
 
             metrics.lowerOuterFence = metrics.quartile1 - (3 * metrics.iqr);
             metrics.upperOuterFence = metrics.quartile3 + (3 * metrics.iqr);
@@ -289,7 +280,6 @@ function makeDistroChart(settings) {
 
     /**
     * Updates the chart based on the current settings and window size
-    * @returns {*}
     */
     chart.update = function () {
         // Update chart size based on view port size
@@ -395,7 +385,6 @@ function makeDistroChart(settings) {
     *   1 = clamp at min and max of data set. Possibly no tails
     *  -1 = extend chart axis to make room for data to interpolate to 0. May extend axis and data set min and max
     * @param [options.colors=chart default] The color mapping for the violin plot
-    * @returns {*} The chart object
     */
     chart.renderViolinPlot = function (options) {
         chart.violinPlots = {};
