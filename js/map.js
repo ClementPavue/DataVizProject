@@ -1,11 +1,17 @@
-var topo,projection,path,svg,g,centered,throttleTimer,airport,airport;
+var topo,projection,path,svg,g,centered,throttleTimer;
 var width = 860;
 var height = 500;
 var state = "ALL";
 var order = "asc";
-
+var airport;
 d3.select(window).on("resize", throttle);
 setup(state);
+//Display the legend
+legend();
+//Display the violin plot
+violin();
+//Display available airline(s)
+airlines();
 
 /**
  * Set up the initial content (map)
@@ -40,12 +46,6 @@ function setup(size){
 
     //Draw the airports
     draw(topo,size);
-    //Display the legend
-    legend();
-    //Display the violin plot
-    violin();
-    //Display available airline(s)
-    airlines();
     //Display the delays heatmap
     //heatmap();
   });
