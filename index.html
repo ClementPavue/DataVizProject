@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Project | Data Viz.</title>
+  <title>US Flight | Data Viz.</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/distrochart.css">
 </head>
 <body>
   <div class="device-notification">
@@ -52,13 +51,15 @@
                     <div id="airport_zone"></div>
                     <div id="airport_code"></div>
                     <!-- <div id="icon"></div> -->
-                    <h3 id="description_map">Title:</h3>
-                    <div id="content_map">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing
-                      <br>elit, sed do eiusmod tempor incididunt ut labore
-                      <br>et dolore magna aliqua. Ut enim ad minim veniam,
-                      <br>quis nostrud exercitation ullamco laboris nisi ut
-                      <br>aliquip ex ea commodo consequat. Duis aute irur
+                    <h3 id="description_map">Airports on US soil:</h3>
+                    <div id="content_map" style="text-align: justify">
+                      The United States has about a third of all airports.
+                      <br>Fourth largest country, airplanes are the quicker
+                      <br>conveyance. The US has been prosperous enough
+                      <br>to support a large interest in aviation and allow access
+                      <br>since the beginning to the middle class.
+                      <br>Here we are displaying the major commercial airports
+                      <br>associated with other useful information.
                     </div>
                     <ul id="airline-available"></ul>
                     <h3>Number of flights per day:</h3>
@@ -72,16 +73,14 @@
                 <h3 id="cruise">Cruising speed by airline</h3>
                 <div class="intro--options">
                   <div class="chart-wrapper" id="speed"></div>
-                  <div class="info-map">
-                    <h3>Violin plot:</h3>
-                    <div>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing
-                      <br>elit, sed do eiusmod tempor incididunt ut labore
-                      <br>et dolore magna aliqua. Ut enim ad minim veniam,
-                      <br>quis nostrud exercitation ullamco laboris nisi ut
-                      <br>aliquip ex ea commodo consequat. Duis aute irur
+                  <div class="info-speed">
+                    <h3>History of fuel savings:</h3>
+                    <div style="text-align: justify">
+                      Airlines are before all profit seeking. In order to make savings,
+                      they can fly at a lower speed.We can see how
+                      greedy they can be thanks to this <span class="tooltip"><span class="gold">violin plot<sup>?</sup></span><span class="tooltiptext">It is similar to box plots, except that they also show the probability density of the data at different values.</span></span>.
                     </div>
-                    <h3>Airlines:</h3>
+                    <h4>Mean by airlines(km/h): <span id="order" class="gold" style="cursor:pointer">↑</span></h4>
                     <ul id="airline_code"></ul>
                   </div>
                 </div>

@@ -1,36 +1,39 @@
 var topo,projection,path,svg,g,centered,throttleTimer;
 var width = 860;
 var height = 500;
-var state = "ALL" ;
+var state = "ALL";
+var order = "asc";
+var airport;
 d3.select(window).on("resize", throttle);
 setup(state);
 
+
 function setup(size){
   projection = d3.geo.albersUsa()
-    .scale(1070)
-    .translate([width / 2, height / 2]);
+  .scale(1070)
+  .translate([width / 2, height / 2]);
   path = d3.geo.path().projection(projection);
   svg = d3.select("#map").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g");
+  .attr("width", width)
+  .attr("height", height)
+  .append("g");
   g = svg.append("g");
 
   d3.json("map/us.json", function(error, us) {
     if (error) throw error;
 
     g.append("g")
-      .attr("id", "states")
-      .selectAll("path")
-      .data(topojson.feature(us, us.objects.states).features)
-      .enter().append("path")
-      .attr("d", path)
-      .on("click", clicked);
+    .attr("id", "states")
+    .selectAll("path")
+    .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+    .attr("d", path)
+    .on("click", clicked);
 
     g.append("path")
-      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-      .attr("id", "state-borders")
-      .attr("d", path);
+    .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+    .attr("id", "state-borders")
+    .attr("d", path);
 
     var usa = topojson.feature(us, us.objects.states).features;
     topo = usa;
@@ -39,6 +42,9 @@ function setup(size){
     legend();
     violin();
     airlines();
+  });
+  d3.select("#order").on("click", function() {
+    print_speed();
   });
 }
 
@@ -96,83 +102,86 @@ function addpoint(d) {
     }
 
     gpoint.append("svg:circle")
-      .attr("cx", x)
-      .attr("cy", y)
-      .attr("class","point")
-      .attr("id",d.name)
-      .attr("r", value)
-      .style("fill",color)
-      .style("cursor","pointer")
-      .call(d3.helper.tooltip()
-        .style({color: 'black'})
-        .text(text+": "+number_of_flight)
-      )
-      .on("mouseover", function() {
-        d3.select(this).style("stroke","white");
-      })
-      .on("mouseout", function() {
-        d3.select(this).style("stroke","");
-      })
-      .on("click", function() {
-        add_line(this);
-        d3.select(this).style("stroke","white");
-        d3.select("#description_map").text("Airlines available");
-        d3.select("#content_map").text("");
-        d3.select("#airport").text(d.airport);
-        d3.select("#airport_city").text(d.city+" ("+d.state+")");
-        d3.select("#airport_weather").text("Temperature: "+Math.round(d.temperature)+"°C, "+d.summary);
-        d3.select("#airport_humidity").text("Humidity: "+Math.round(d.humiditiy)+"%");
-        d3.select("#airport_zone").text("Time zone: UTC"+d.offset);
-        d3.select("#airport_code").text("IATA code: "+d.name);
-        // var skycons = new Skycons("red");
-        // skycons.add("#icon", d.icon);
-        // skycons.play();
-
-        $("#airline-available").empty();
-        d3.csv('data/speed.csv', function(error, data) {
-          data = data.filter(function(row) {
-            return row.ORIGIN_AIRPORT == d.name;
-          });
-          var airlines = [];
-          data.forEach(function(d){
-            airlines.push(d.AIRLINE);
-          });
-          airlines = airlines.filter((v, i, a) => a.indexOf(v) === i);
-          if(airlines.length > 4){
-            var temp = "";
-            for(i=0; i<5; i++){
-              $("#airline-available").append("<li>"+airlines[i]+"</li>");
-            }
-            for(i=5; i<airlines.length; i++){
-              temp += airlines[i]+", ";
-            }
-            $("#airline-available").append("<li class='tooltip'>… <span class='tooltiptext'>"+temp+"</span></li>");
-          }
-          else{
-            for(i=0; i<airlines.length; i++){
-              $("#airline-available").append("<li>"+airlines[i]+"</li>");
-            }
-          }
+    .attr("cx", x)
+    .attr("cy", y)
+    .attr("class","point")
+    .attr("id",d.name)
+    .attr("r", value)
+    .style("fill",color)
+    .style("cursor","pointer")
+    .call(d3.helper.tooltip()
+    .style({color: 'black'})
+    .text(text+": "+number_of_flight)
+  )
+  .on("mouseover", function() {
+    d3.select(this).style("stroke","white");
+  })
+  .on("mouseout", function() {
+    d3.select(this).style("stroke","");
+  })
+  .on("click", function() {
+    d3.select(this).style("stroke","white");
+    d3.select("#description_map").text("Airline(s) available");
+    d3.select("#content_map").text("");
+    d3.select("#airport").text(d.airport);
+    d3.select("#airport_city").text(d.city+" ("+d.state+")");
+    d3.select("#airport_weather").text("Temperature: "+Math.round(d.temperature)+"°C, "+d.summary);
+    d3.select("#airport_humidity").text("Humidity: "+Math.round(d.humiditiy)+"%");
+    d3.select("#airport_zone").text("Time zone: UTC"+d.offset);
+    d3.select("#airport_code").text("IATA code: "+d.name);
+    // var skycons = new Skycons("red");
+    // skycons.add("#icon", d.icon);
+    // skycons.play();
+    $("#airline-available").empty();
+    d3.csv('data/speed.csv', function(error, data) {
+      data = data.filter(function(row) {
+        return row.ORIGIN_AIRPORT == d.name;
+      });
+      var airlines = [];
+      data.forEach(function(d){
+        airlines.push(d.AIRLINE);
+      });
+      airlines = airlines.filter((v, i, a) => a.indexOf(v) === i);
+      if(airlines.length > 4){
+        var temp = "";
+        var temps = [];
+        for(i=0; i<5; i++){
+          $("#airline-available").append("<li>"+airlines[i]+"</li>");
+        }
+        for(i=5; i<airlines.length; i++){
+          temp += airlines[i]+", ";
+          temps.push(airlines[i]);
+        }
+        $("#airline-available").append("<li class='tooltip'><span class='gold'>+"+temps.length+" other(s)<sup>?</sup></span><span class='tooltiptext'>"+temp+"</span></li>");
+      }
+      else{
+        for(i=0; i<airlines.length; i++){
+          $("#airline-available").append("<li>"+airlines[i]+"</li>");
+        }
+      }
     });
+    add_line(this);
   });
-  }
-  catch(err) {
-    return;
-  }
+}
+catch(err) {
+  return;
+}
 }
 
 function add_line(c) {
   d3.selectAll("line").remove();
   var origin_airport = c.id;
-  c = d3.select(c);
-  d3.csv("data/trace.csv", function(data) {
-    data = data.filter(function(row) {
-      return row.ORIGIN_AIRPORT == origin_airport;
-    });
-    data.forEach(function(d){
-      destination_airport = d3.select("#"+d.DESTINATION_AIRPORT);
-      try {
-        var myLine = g.append("svg:line")
+  if(c.id !== airport){
+    airport = c.id;
+    c = d3.select(c);
+    d3.csv("data/trace.csv", function(data) {
+      data = data.filter(function(row) {
+        return row.ORIGIN_AIRPORT == origin_airport;
+      });
+      data.forEach(function(d){
+        destination_airport = d3.select("#"+d.DESTINATION_AIRPORT);
+        try {
+          var myLine = g.append("svg:line")
           .attr("x1", c.attr("cx"))
           .attr("y1", c.attr("cy"))
           .attr("x2", destination_airport.attr("cx"))
@@ -180,12 +189,17 @@ function add_line(c) {
           .style("stroke", "rgb(6,120,155)")
           .style("stroke-width", 0.5)
           .style("opacity", 0.6);
-      }
-      catch(err) {
-        return;
-      }
+        }
+        catch(err) {
+          return;
+        }
+      });
     });
-  });
+  }
+  else {
+    airport = null;
+    // initial();
+  }
 }
 
 function throttle() {
@@ -232,12 +246,12 @@ function clicked(d) {
   }
 
   g.selectAll("path")
-    .classed("active", centered && function(d) { return d === centered; });
+  .classed("active", centered && function(d) { return d === centered; });
 
   g.transition()
-    .duration(750)
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-    .style("stroke-width", 1.5 / k + "px");
+  .duration(750)
+  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+  .style("stroke-width", 1.5 / k + "px");
 }
 
 function violin(){
@@ -262,41 +276,41 @@ function legend(){
   var legendData = [[">200", "#6D6875", "circle", "L", 6], ["50<.<200", "#4E8098", "circle", "M", 4.5], ["1<.<50", "#A31621", "circle", "S", 3]];
   var svg = d3.select('#legend').append('svg').attr('width', 500).attr('height', 100);
   var legend = svg.append('g')
-    .attr("class", "legend")
-    .attr("height", 0)
-    .attr("width", 0)
-    .attr('transform', 'translate(20,20)');
+  .attr("class", "legend")
+  .attr("height", 0)
+  .attr("width", 0)
+  .attr('transform', 'translate(20,20)');
 
   var legendRect = legend
-    .selectAll('g')
-    .data(legendData);
+  .selectAll('g')
+  .data(legendData);
 
   var legendRectE = legendRect.enter()
-    .append("g")
-    .attr("transform", function(d,i){
-      return 'translate(0, ' + (i * 20) + ')';
-    });
+  .append("g")
+  .attr("transform", function(d,i){
+    return 'translate(0, ' + (i * 20) + ')';
+  });
 
   legendRectE
-    .append("path")
-    .attr("d", d3.svg.symbol().type((d) => {
-      return d[2]
-    }))
-    .style("fill", function (d) {
-      return d[1];
-    })
-    .style("cursor","pointer")
-    .on("click", function(d,i) {
-      redraw(d[3]);
-    });
+  .append("path")
+  .attr("d", d3.svg.symbol().type((d) => {
+    return d[2]
+  }))
+  .style("fill", function (d) {
+    return d[1];
+  })
+  .style("cursor","pointer")
+  .on("click", function(d,i) {
+    redraw(d[3]);
+  });
 
   legendRectE.append("text")
-    .attr("x", 10)
-    .attr("y", 5)
-    .text(function (d) {
-      return d[0];
-    })
-    .style("fill", "#F6F7EB");
+  .attr("x", 10)
+  .attr("y", 5)
+  .text(function (d) {
+    return d[0];
+  })
+  .style("fill", "#F6F7EB");
 }
 
 function airlines(){
@@ -305,7 +319,42 @@ function airlines(){
       return b.SPEED-a.SPEED;
     });
     data.forEach(function(d){
-      $("#airline_code").append("<li>"+d.AIRLINE+"("+d.IATA_CODE+"): "+Math.round(d.SPEED)+"km/h</li>");
+      $("#airline_code").append("<li>"+d.IATA_CODE+" ("+d.AIRLINE+") : "+Math.round(d.SPEED)+"</li>");
     });
   });
 }
+
+function print_speed(){
+  $("#airline_code").empty();
+  d3.csv("data/airlines.csv", function(data) {
+    if(order === "asc") {
+      order = "desc";
+      d3.select("#order").text("↓");
+      data.sort(function(a,b) {
+        return b.SPEED-a.SPEED;
+      });
+    }
+    else{
+      order = "asc";
+      d3.select("#order").text("↑");
+      data.sort(function(a,b) {
+        return a.SPEED-b.SPEED;
+      });
+    }
+    data.forEach(function(d){
+      $("#airline_code").append("<li>"+d.IATA_CODE+"("+d.AIRLINE+") : "+Math.round(d.SPEED)+"</li>");
+    });
+  });
+}
+
+// function initial(){
+//   d3.select("#airport").text("Please select an airport");
+//   d3.select("#description_map").text("");
+//   d3.select("#content_map").text("");
+//   $("#airline-available").empty();
+//   d3.select("#airport_city").text("");
+//   d3.select("#airport_weather").text("");
+//   d3.select("#airport_humidity").text("");
+//   d3.select("#airport_zone").text("");
+//   d3.select("#airport_code").text("");
+// }

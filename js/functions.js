@@ -1,16 +1,11 @@
 // @codekit-prepend "/vendor/hammer-2.0.8.js";
 
 $( document ).ready(function() {
-
-  // DOMMouseScroll included for firefox support
   var canScroll = true,
       scrollController = null;
   $(this).on('mousewheel DOMMouseScroll', function(e){
-
     if (!($('.outer-nav').hasClass('is-vis'))) {
-
       e.preventDefault();
-
       var delta = (e.originalEvent.wheelDelta) ? -e.originalEvent.wheelDelta : e.originalEvent.detail * 20;
 
       if (delta > 50 && canScroll) {
@@ -29,62 +24,45 @@ $( document ).ready(function() {
         }, 800);
         updateHelper(-1);
       }
-
     }
-
   });
 
   $('.side-nav li, .outer-nav li').click(function(){
-
     if (!($(this).hasClass('is-active'))) {
-
       var $this = $(this),
           curActive = $this.parent().find('.is-active'),
           curPos = $this.parent().children().index(curActive),
           nextPos = $this.parent().children().index($this),
           lastItem = $(this).parent().children().length - 1;
-
       updateNavs(nextPos);
       updateContent(curPos, nextPos, lastItem);
-
     }
-
   });
 
   $('.cta').click(function(){
-
     var curActive = $('.side-nav').find('.is-active'),
         curPos = $('.side-nav').children().index(curActive),
         lastItem = $('.side-nav').children().length - 1,
         nextPos = lastItem;
-
     updateNavs(lastItem);
     updateContent(curPos, nextPos, lastItem);
-
   });
 
-  // swipe support for touch devices
   var targetElement = document.getElementById('viewport'),
       mc = new Hammer(targetElement);
   mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
   mc.on('swipeup swipedown', function(e) {
-
     updateHelper(e);
-
   });
 
   $(document).keyup(function(e){
-
     if (!($('.outer-nav').hasClass('is-vis'))) {
       e.preventDefault();
       updateHelper(e);
     }
-
   });
 
-  // determine scroll, swipe, and arrow key direction
   function updateHelper(param) {
-
     var curActive = $('.side-nav').find('.is-active'),
         curPos = $('.side-nav').children().index(curActive),
         lastItem = $('.side-nav').children().length - 1,
@@ -113,25 +91,18 @@ $( document ).ready(function() {
         updateContent(curPos, nextPos, lastItem);
       }
     }
-
   }
 
-  // sync side and outer navigations
   function updateNavs(nextPos) {
-
     $('.side-nav, .outer-nav').children().removeClass('is-active');
     $('.side-nav').children().eq(nextPos).addClass('is-active');
     $('.outer-nav').children().eq(nextPos).addClass('is-active');
-
   }
 
-  // update main content area
   function updateContent(curPos, nextPos, lastItem) {
-
     $('.main-content').children().removeClass('section--is-active');
     $('.main-content').children().eq(nextPos).addClass('section--is-active');
     $('.main-content .section').children().removeClass('section--next section--prev');
-
     if (curPos === lastItem && nextPos === 0 || curPos === 0 && nextPos === lastItem) {
       $('.main-content .section').children().removeClass('section--next section--prev');
     }
@@ -148,37 +119,28 @@ $( document ).ready(function() {
     else {
       $('.header--cta').removeClass('is-active');
     }
-
   }
 
   function outerNav() {
-
     $('.header--nav-toggle').click(function(){
-
       $('.perspective').addClass('perspective--modalview');
       setTimeout(function(){
         $('.perspective').addClass('effect-rotate-left--animate');
       }, 25);
       $('.outer-nav, .outer-nav li, .outer-nav--return').addClass('is-vis');
-
     });
 
     $('.outer-nav--return, .outer-nav li').click(function(){
-
       $('.perspective').removeClass('effect-rotate-left--animate');
       setTimeout(function(){
         $('.perspective').removeClass('perspective--modalview');
       }, 400);
       $('.outer-nav, .outer-nav li, .outer-nav--return').removeClass('is-vis');
-
     });
-
   }
 
   function workSlider() {
-
     $('.slider--prev, .slider--next').click(function() {
-
       var $this = $(this),
           curLeft = $('.slider').find('.slider--item-left'),
           curLeftPos = $('.slider').children().index(curLeft),
@@ -193,7 +155,6 @@ $( document ).ready(function() {
           $item = $('.slider--item');
 
       $('.slider').animate({ opacity : 0 }, 400);
-
       setTimeout(function(){
 
       if ($this.hasClass('slider--next')) {
@@ -244,19 +205,13 @@ $( document ).ready(function() {
           }
         }
       }
-
     }, 400);
-
     $('.slider').animate({ opacity : 1 }, 400);
-
     });
-
   }
 
   function transitionLabels() {
-
     $('.work-request--information input').focusout(function(){
-
       var textVal = $(this).val();
 
       if (textVal === "") {
@@ -265,16 +220,10 @@ $( document ).ready(function() {
       else {
         $(this).addClass('has-value');
       }
-
-      // correct mobile device window position
       window.scrollTo(0, 0);
-
     });
-
   }
-
   outerNav();
   workSlider();
   transitionLabels();
-
 });

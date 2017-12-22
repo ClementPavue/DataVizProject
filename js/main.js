@@ -1,4 +1,4 @@
 requirejs(['map']);
-requirejs(["skycons"]);
+// requirejs(["skycons"]);
 requirejs(["distrochart"]);
 requirejs(["tooltip"]);

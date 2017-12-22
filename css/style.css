@@ -4,17 +4,17 @@
 	height: 100%;
 	margin: 0;
 	color: #EFF1F3;
- }
+}
 
 .map {
 	background-color: #ecf0f1;
 	width: 104%;
- }
+}
 
 a {
 	color: #ffffff;
 	text-decoration: none;
- }
+}
 
 h2 {
 	text-align: center;
@@ -23,11 +23,11 @@ h2 {
 	margin-top: 20px;
 	font-size: 16px;
 	text-transform: uppercase;
- }
+}
 
 #states {fill: #aaa;}
 
-	#states .active {fill: orange;}
+#states .active {fill: orange;}
 
 #state-borders {
 	fill: none;
@@ -36,67 +36,211 @@ h2 {
 	stroke-linejoin: round;
 	stroke-linecap: round;
 	pointer-events: none;
- }
+}
 
 #airport {
 	text-align: center;
 	font-size: 23px;
 	color: #EFF1F3;
- }
+}
 
 #cruise {
 	text-align: center;
 	font-size: 23px;
 	color: #EFF1F3;
- }
+}
 
 #legend {margin-top: -20px;}
 
 #info {
 	margin-top: -25px;
 	width: 125%; /* width: 1215px; */
- }
+}
 
 #work {width: 145%; /* width: 1215px; */}
 
 .info-map {margin-left: 25px;}
 
+.info-speed {
+	margin-left: 25px;
+	width: 300px;
+}
+
 #airline-available {text-align: justify;}
+
+#airline_code{font-size: 11px;}
 
 .intro {
 	margin-left: 5%;
 	margin-right: 5%;
- }
+}
 
 .tooltip {
 	position: relative;
 	display: inline-block;
-	border-bottom: 1px dotted black;
- }
+	/* border-bottom: 1px dotted black; */
+}
 
-	.tooltip .tooltiptext {
-		visibility: hidden;
-		width: 120px;
-		background-color: black;
-		color: #fff;
-		text-align: center;
-		border-radius: 6px;
-		padding: 5px 0;
-		position: absolute;
-		z-index: 1;
-		bottom: 100%;
-		left: 50%;
-		margin-left: -60px;
-		opacity: 0;
-		transition: opacity 1s;
-	 }
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 1s;
+}
 
-	.tooltip:hover .tooltiptext {
-		visibility: visible;
-		opacity: 0.8;
-	 }
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 0.8;
+}
 
+.gold{
+	color:gold;
+}
+
+/* Violin */
 .chart-wrapper {
 	width: 860px;
 	height: 415px;
- }
+	max-width: 800px;
+	min-width: 304px;
+	margin-bottom: 8px;
+	background-color: #777582;
+	margin-top: 60px;
+}
+.chart-wrapper .inner-wrapper {
+	position: relative;
+	padding-bottom: 50%;
+	width: 100%;
+}
+.chart-wrapper .outer-box {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.chart-wrapper .inner-box {
+	width: 100%;
+	height: 100%;
+}
+
+.chart-wrapper text {
+	font-family: sans-serif;
+	font-size: 13px;
+}
+
+.chart-wrapper .axis path,
+.chart-wrapper .axis line {
+	fill: none;
+	stroke: #888;
+	stroke-width: 2px;
+	shape-rendering: crispEdges;
+}
+
+.chart-wrapper .y.axis .tick line {
+	stroke: lightgrey;
+	opacity: 0.6;
+	stroke-dasharray: 2,1;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+
+}
+
+.chart-wrapper .x.axis .domain {
+	display: none;
+}
+
+.chart-wrapper div.tooltip {
+	position: absolute;
+	text-align: left;
+	padding: 3px;
+	font: 12px sans-serif;
+	background: black;
+	border: 0px;
+	border-radius: 1px;
+	pointer-events: none;
+	opacity: 0.7;
+}
+
+.chart-wrapper .box-plot .box {
+	fill-opacity: 0.4;
+	stroke-width: 2;
+}
+.chart-wrapper .box-plot line {
+	stroke-width: 2px;
+}
+.chart-wrapper .box-plot circle {
+	fill: white;
+	stroke: black;
+}
+
+.chart-wrapper .box-plot .median {
+	stroke: black;
+}
+
+.chart-wrapper .box-plot circle.median {
+	/*the script makes the circles the same color as the box, you can override this in the js*/
+	fill: white !important;
+}
+
+.chart-wrapper .box-plot .mean {
+	stroke: white;
+	stroke-dasharray: 2,1;
+	stroke-width: 1px;
+}
+
+@media (max-width:500px){
+	.chart-wrapper .box-plot circle {display: none;}
+}
+
+.chart-wrapper .violin-plot .area {
+	shape-rendering: geometricPrecision;
+	opacity: 0.4;
+}
+
+.chart-wrapper .violin-plot .line {
+	fill: none;
+	stroke-width: 2px;
+	shape-rendering: geometricPrecision;
+}
+
+.chart-wrapper .notch-plot .notch {
+	fill-opacity: 0.4;
+	stroke-width: 2;
+}
+
+.chart-wrapper .points-plot .point {
+	stroke: black;
+	stroke-width: 1px;
+}
+
+.chart-wrapper .metrics-lines {
+	stroke-width: 4px;
+}
+
+.chart-options  {
+	min-width: 200px;
+	font-size: 13px;
+	font-family: sans-serif;
+}
+.chart-options button {
+	margin: 3px;
+	padding: 3px;
+	font-size: 12px;
+}
+.chart-options p {
+	display: inline;
+}
+@media (max-width:500px){
+	.chart-options p {display: block;}
+}
